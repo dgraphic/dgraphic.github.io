@@ -829,7 +829,7 @@ p.question-counter {
   }
 }
 .option .checkbox img.img {
-  margin: 7px 0px 0px 4px;
+  margin: 5px 0px 0px 4px;
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
