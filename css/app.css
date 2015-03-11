@@ -672,6 +672,7 @@ body {
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
+  display: none;
 }
 .head-logo {
   background-image: url("../img/logo.svg");
@@ -802,7 +803,7 @@ p.question-counter {
 .option p {
   font-size: 19px;
   line-height: 1.5;
-  margin: 10px 10px 0px 20px;
+  margin: 16px 10px 0px 20px;
   pointer-events: none;
 }
 @media only screen and (max-width: 700px) {
