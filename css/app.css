@@ -1273,9 +1273,9 @@ div.bnr {
   .cover {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 20vw;
     top: 50%;
-    margin-top: -280px;
+    margin-top: -40vw;
     color: rgba(0,59,118,0.8);
     text-transform: uppercase;
     text-align: center;
@@ -1287,10 +1287,10 @@ div.bnr {
   .cover .cover-button {
     width: 96vw;
     margin: 0 auto;
-    height: 19vw;
+    height: 20vw;
     background: #ccc;
     border-radius: 5px;
-    margin-top: 155px;
+    margin-top: 13vw;
     color: #000;
     font-family: GeometriaMedium;
     font-size: 6.2vw;
