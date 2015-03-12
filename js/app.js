@@ -10810,6 +10810,8 @@ var prevDecr = $("a.prev-decr");
 var nextDecr = $("a.next-decr");
 var imgDecr = $("img.img-decr");
 var currSubQ = 0;
+var animationBegin = document.getElementById("animation-begin");
+var animationEnd   = document.getElementById("animation-end");
 
 $(window).on('resize', function(){
    resize()
@@ -10832,9 +10834,12 @@ function start(){
 
 function nextQuestion(){
   answers.removeClass('checked')
+      .css({opacity: 1})
       .find('.img').stop().css({opacity: 0});
+
   answer.addClass('close');
   nextbtn.addClass('close');
+  answers.css({backgroundColor: "rgba(0, 59, 118,0.8)"})
 
   cQ++;
 console.log(cQ);
@@ -10949,6 +10954,7 @@ function init(){
     counter.removeClass("close");
     question.removeClass("close");
     $(".questions").removeClass("close");
+    nextbtn.find('p').text('Следующий вопрос')
 
     nextQuestion();
   });
@@ -10978,15 +10984,16 @@ function showAnswer(){
   answertext.html(questions[cQ-1].answer)
 
   if(userAnswers[cQ-1] == rightAnswers[cQ-1]){
-    flash.css({backgroundColor: "#0c0"})
+    answers.eq(userAnswers[userAnswers.length-1]).css({backgroundColor: "rgba(0,79,43,0.8)"})
   }else{
-    flash.css({backgroundColor: "#c00"})
+    answers.eq(userAnswers[userAnswers.length-1]).css({backgroundColor: "rgba(153,0,0,0.8)"})
   }
 
   flash.animate({opacity: 0.5}, 200, function(){
     flash.animate({opacity: 0}, 100, function(){
       answer.animate({opacity: 1}, 400);
       nextbtn.animate({opacity: 1}, 400);
+      answers.animate({opacity: 0}, 400);
       if ( $(window).width() > 1160 ){
         nextbtn.css({"top": ( ( answer.height() + 30 ) / 2) - 35 });
       }else{
@@ -11003,16 +11010,44 @@ function shuffle(o){
 
 start()
 
+$(".btn-close").click(function(){
+  $(".ftr-mail").animate({
+    bottom: "-500px"
+  }, 1100);
+});
+
 $(".ftr").click(function(){
   // $(".bg").slideUp( 800 );
-  $(".bg").animate({
+  $(".vic").animate({
     top: "-1500px"
   }, 1100);
 });
 
+$(".ftr").hover(function(){
+  // $("#animation-begin").beginElement();
+  // animationBegin.beginElement();
+  // $(".video").removeClass("close");
+  $(".ftr > .text").stop().animate({
+    bottom: "35px"
+  }, 300, function(){
+    $(".show-video").stop().animate({opacity: 1}, 300);
+  });
+}, function() {
+  // animationEnd.beginElement();
+  $(".show-video").stop().animate({opacity: 0}, 100, function(){
+
+  $(".ftr > .text").stop().animate({
+    bottom: "15px"
+  }, 300);
+
+  });
+
+  // $(".ftr-mail").animate({ bottom: "0" }, 800);
+});
+
 $(".ftr-vid").click(function(){
   // $(".bg").slideDown( 800 );
-  $(".bg").animate({
+  $(".vic").animate({
     top: "0"
   }, 1100);
 
