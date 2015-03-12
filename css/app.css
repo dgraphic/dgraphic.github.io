@@ -1273,7 +1273,7 @@ div.bnr {
   .cover {
     position: absolute;
     width: 100%;
-    height: 20vh;
+    height: 30vh;
     top: 50%;
     margin-top: -40vw;
     color: rgba(0,59,118,0.8);
@@ -1281,20 +1281,21 @@ div.bnr {
     text-align: center;
   }
   .cover .cover-title {
+    font-size: 46px;
     font-size: 12.2vw;
     font-family: GeometriaBold, Arial, sans-serif;
   }
   .cover .cover-button {
     width: 96vw;
     margin: 0 auto;
-    height: 20vh;
+    height: 8vh;
     background: #ccc;
     border-radius: 5px;
     margin-top: 13vw;
+    padding-top: 6vw;
     color: #000;
     font-family: GeometriaMedium, Arial, sans-serif;
     font-size: 6.2vw;
-    line-height: 3;
     background: #e6e7e8; /* for non-css3 browsers */
     background: linear-gradient(to bottom, #fff, #e6e7e8);
     cursor: pointer;
