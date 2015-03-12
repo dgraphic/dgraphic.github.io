@@ -10812,6 +10812,8 @@ var imgDecr = $("img.img-decr");
 var currSubQ = 0;
 var animationBegin = document.getElementById("animation-begin");
 var animationEnd   = document.getElementById("animation-end");
+var animationPolylineBegin = document.getElementById("animation-polyline-begin");
+var animationPolylineEnd = document.getElementById("animation-polyline-end");
 
 $(window).on('resize', function(){
    resize()
@@ -10879,6 +10881,11 @@ console.log(cQ);
   }
 }
 
+
+function fff(n){
+  $(".text-result").html( results[n - 1] );
+    $(".img-result").attr("src", "img/results/" + n + ".svg")
+}
 function calculateResult(){
   var count = 0;
   $.each(userAnswers, function(i, e){
@@ -10886,17 +10893,17 @@ function calculateResult(){
       count++;
     }
   });
-  console.log(count);
+  // console.log(count);
   if(count <= resultIntervals[0]){
-    $(".text-result").html( results[0] );
+   fff(1)
   }else if(count <= resultIntervals[1]){
-    $(".text-result").html( results[1] );
+  fff(2)
   }else if(count <= resultIntervals[2]){
-    $(".text-result").html( results[2] );
+    fff(3)
   }else if(count <= resultIntervals[3]){
-    $(".text-result").html( results[3] );
+   fff(4)
   }else{
-    $(".text-result").html( results[4] );
+   fff(5)
   }
 
    $(".result-title").text("Ваш результат ― " + count + " из 14");
@@ -11018,29 +11025,29 @@ $(".btn-close").click(function(){
 
 $(".ftr").click(function(){
   // $(".bg").slideUp( 800 );
+  $(".ftr-bg").css({opacity: 0});
   $(".vic").animate({
     top: "-1500px"
   }, 1100);
 });
 
 $(".ftr").hover(function(){
-  // $("#animation-begin").beginElement();
-  // animationBegin.beginElement();
+  //$("#animation-begin").beginElement();
+  animationBegin.beginElement();
+  animationPolylineBegin.beginElement();
   // $(".video").removeClass("close");
   $(".ftr > .text").stop().animate({
     bottom: "35px"
-  }, 300, function(){
-    $(".show-video").stop().animate({opacity: 1}, 300);
-  });
+  }, 300);
+  $(".show-video").stop().animate({opacity: 1}, 300);
 }, function() {
+  animationEnd.beginElement();
+  animationPolylineEnd.beginElement();
   // animationEnd.beginElement();
-  $(".show-video").stop().animate({opacity: 0}, 100, function(){
-
-  $(".ftr > .text").stop().animate({
+  $(".show-video").stop().animate({opacity: 0}, 100);
+   $(".ftr > .text").stop().animate({
     bottom: "15px"
   }, 300);
-
-  });
 
   // $(".ftr-mail").animate({ bottom: "0" }, 800);
 });
