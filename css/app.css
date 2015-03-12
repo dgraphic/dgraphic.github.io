@@ -1282,7 +1282,7 @@ div.bnr {
   }
   .cover .cover-title {
     font-size: 12.2vw;
-    font-family: GeometriaBold;
+    font-family: GeometriaBold, Arial, sans-serif;
   }
   .cover .cover-button {
     width: 96vw;
@@ -1292,7 +1292,7 @@ div.bnr {
     border-radius: 5px;
     margin-top: 13vw;
     color: #000;
-    font-family: GeometriaMedium;
+    font-family: GeometriaMedium, Arial, sans-serif;
     font-size: 6.2vw;
     line-height: 3;
     background: #e6e7e8; /* for non-css3 browsers */
