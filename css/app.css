@@ -1325,8 +1325,17 @@ div.bnr {
   margin-top: 13vw;
   font-size: 1.7em;
 }
+@media only screen and (max-width: 440px) {
+  .cover .cover-button {
+    width: 400px;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .cover .cover-button {
+    width: 300px;
+  }
+}
 .cover .cover-button .cover-button-text {
-  background: #ccc;
   width: 520px;
   width: 85vw;
   height: 80px;
