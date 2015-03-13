@@ -956,6 +956,9 @@ p.question-counter {
     display: none;
   }
 }
+.ftr {
+  filter: filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#0001163C', EndColorStr='#E501163C');
+}
 .answer {
   border-radius: 5px;
   -moz-box-sizing: border-box;
@@ -1095,7 +1098,7 @@ p.question-counter {
   text-decoration: none;
   position: absolute;
   font-size: 12px;
-  color: #666;
+  color: #fff;
   padding: 0px 40px 25px 0px;
   right: 0;
   bottom: 0;
@@ -1283,28 +1286,41 @@ div.bnr {
     text-align: center;
   }
   .cover .cover-title {
-    font-size: 46px;
-    font-size: 12.2vw;
+    font-size: 53px;
+    font-size: 3.5em;
+    margin-bottom: 24vw;
+    margin-bottom: 115px;
     font-family: GeometriaBold, Arial, sans-serif;
   }
   .cover .cover-button {
-    width: 96vw;
+    width: 520px;
+    width: 85vw;
+    margin-left: 32px;
+    margin-left: 7vw;
     margin: 0 auto;
     height: 80px;
     height: 8vh;
     background: #ccc;
+    margin: 0 auto;
     border-radius: 5px;
-    padding-top: 11px;
-    margin-top: 30px;
-    margin-top: 13vw;
-    padding-top: 24px;
-    padding-top: 6vw;
+    background: #e6e7e8;
+    background: linear-gradient(to bottom, #fff, #e6e7e8);
     color: #000;
     font-family: GeometriaMedium, Arial, sans-serif;
-    font-size: 6.2vw;
-    background: #e6e7e8; /* for non-css3 browsers */
-    background: linear-gradient(to bottom, #fff, #e6e7e8);
     cursor: pointer;
+    margin-top: 30px;
+    margin-top: 13vw;
+    font-size: 1.7em;
+  }
+  .cover .cover-button .cover-button-text {
+    width: 520px;
+    width: 85vw;
+    height: 80px;
+    height: 8vh;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 5px;
   }
 }
 /*
