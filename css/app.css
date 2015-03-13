@@ -1326,6 +1326,7 @@ div.bnr {
   font-size: 1.7em;
 }
 .cover .cover-button .cover-button-text {
+  background: #ccc;
   width: 520px;
   width: 85vw;
   height: 80px;
