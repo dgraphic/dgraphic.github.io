@@ -1273,55 +1273,67 @@ div.bnr {
     background-image: url("../img/icon-vk-mob.svg");
     right: 25px;
   }
-  .cover {
-    position: absolute;
-    width: 100%;
-    height: 220px;
-    height: 30vh;
-    top: 50%;
-    margin-top: -130px;
-    margin-top: -40vw;
-    color: rgba(0,59,118,0.8);
-    text-transform: uppercase;
-    text-align: center;
-  }
+}
+.cover {
+  position: absolute;
+  width: 100%;
+  height: 220px;
+  height: 30vh;
+  top: 50%;
+  margin-top: -130px;
+  margin-top: -40vw;
+  color: rgba(0,59,118,0.8);
+  text-transform: uppercase;
+  text-align: center;
+}
+.cover .cover-title {
+  font-size: 53px;
+  font-size: 3.5em;
+  margin-bottom: 24vw;
+  margin-bottom: 115px;
+  font-family: GeometriaBold, Arial, sans-serif;
+}
+@media only screen and (max-width: 440px) {
   .cover .cover-title {
-    font-size: 53px;
-    font-size: 3.5em;
-    margin-bottom: 24vw;
-    margin-bottom: 115px;
-    font-family: GeometriaBold, Arial, sans-serif;
+    font-size: 47px;
+    font-size: 3em;
   }
-  .cover .cover-button {
-    width: 520px;
-    width: 85vw;
-    margin-left: 32px;
-    margin-left: 7vw;
-    margin: 0 auto;
-    height: 80px;
-    height: 8vh;
-    background: #ccc;
-    margin: 0 auto;
-    border-radius: 5px;
-    background: #e6e7e8;
-    background: linear-gradient(to bottom, #fff, #e6e7e8);
-    color: #000;
-    font-family: GeometriaMedium, Arial, sans-serif;
-    cursor: pointer;
-    margin-top: 30px;
-    margin-top: 13vw;
-    font-size: 1.7em;
+}
+@media only screen and (max-width: 375px) {
+  .cover .cover-title {
+    font-size: 38px;
+    font-size: 2.5em;
   }
-  .cover .cover-button .cover-button-text {
-    width: 520px;
-    width: 85vw;
-    height: 80px;
-    height: 8vh;
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-    border-radius: 5px;
-  }
+}
+.cover .cover-button {
+  width: 520px;
+  width: 85vw;
+  margin-left: 32px;
+  margin-left: 7vw;
+  margin: 0 auto;
+  height: 80px;
+  height: 8vh;
+  background: #ccc;
+  margin: 0 auto;
+  border-radius: 5px;
+  background: #e6e7e8;
+  background: linear-gradient(to bottom, #fff, #e6e7e8);
+  color: #000;
+  font-family: GeometriaMedium, Arial, sans-serif;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-top: 13vw;
+  font-size: 1.7em;
+}
+.cover .cover-button .cover-button-text {
+  width: 520px;
+  width: 85vw;
+  height: 80px;
+  height: 8vh;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  border-radius: 5px;
 }
 /*
 html
