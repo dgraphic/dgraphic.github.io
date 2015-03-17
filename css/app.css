@@ -811,12 +811,13 @@ p.head-center {
 }
 p.question-text {
   font-size: 24px;
-  margin-left: 50px;
+  margin-left: 59px;
   margin-right: 50px;
   line-height: 1.25;
   color: #000;
   font-family: GeometriaBold, Arial, sans-serif;
   min-height: 60px;
+  width: 610px;
 }
 @media only screen and (max-width: 700px) {
   p.question-text {
@@ -840,8 +841,9 @@ p.question-counter {
   font-family: GeometriaLight, Arial, sans-serif;
   color: #000;
   float: left;
-  margin-left: -145px;
-  margin-top: 17px;
+  margin-left: -157px;
+  text-align: right;
+  margin-top: 10px;
   width: 180px;
 }
 @media only screen and (max-width: 1070px) {
@@ -1258,9 +1260,8 @@ span.show_video {
 .social {
   position: absolute;
   top: 50%;
-  left: 50%;
-  margin-left: 525px;
-  margin-top: 100px;
+  right: 20px;
+  margin-top: 60px;
 }
 @media only screen and (max-width: 1160px) {
   .social {
