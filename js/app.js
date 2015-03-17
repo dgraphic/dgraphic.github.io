@@ -10819,6 +10819,22 @@ $(window).on('resize', function(){
    resize()
 })
 
+function resizeVideo(){
+    var imgW = 1366;
+    var imgH = 768;
+    var contW = $(".covervid-video").width();
+    var contH = $(".covervid-video").height();
+    if(contW < $(window).width()){
+      $(".covervid-video").css({width: $(window).width(), height: "auto"})
+    }
+    var contW = $(".covervid-video-ts").width();
+    var contH = $(".covervid-video-ts").height();
+    if(contW < $(window).width()){
+      $(".covervid-video-ts").css({width: $(window).width(), height: "auto"})
+    }
+
+}
+
 function resize(){
 
       if ( $(window).width() > 1160 ){
@@ -10826,13 +10842,7 @@ function resize(){
       }else{
         nextbtn.css({"top": answer.height() + 60 });
       }
-      var imgW = 1366;
-      var imgH = 768;
-      var contW = $(".covervid-video").width();
-      var contH = $(".covervid-video").height();
-      if(contW < $(window).width()){
-        $(".covervid-video").css({width: $(window).width(), height: "auto"})
-      }
+      resizeVideo();
 }
 
 function start(){
@@ -11073,10 +11083,11 @@ $(".ftr").click(function(){
   //   $(".ftr-logo").css("bottom", "2%");
   // }, 3000);
 
-
   $(".vic").animate({
     top: "-1500px"
   }, 1100);
+
+  resizeVideo();
 });
 
 $(".ftr-vid").click(function(){
@@ -11111,6 +11122,7 @@ $(".cover_button").click(function(){
     $(".cover").css("display", "none");
   });
 
+  resizeVideo();
 });
 
 
@@ -11151,6 +11163,7 @@ $(document).ready(function(){
     $(".ftr-mail").animate({"bottom": "0"}, 1000);
     $(".ftr-logo").animate({"bottom": "2%"}, 1000);
   });
+
 
   // $(".cover_logo").click(function(){
   //   $(".cover_text_1").css({"display": "none"});
