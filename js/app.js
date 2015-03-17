@@ -10621,7 +10621,7 @@ var questions = [
         versions: [
             "Приразломная",
             "Пионер",
-            "Deepwater Horizon",
+            "Вест Альфа",
             "Арктическая"
         ]
     },
@@ -10637,7 +10637,7 @@ var questions = [
     },
     {
         question: "Какова сегодня толщина арктического льда?",
-        answer: "В последние годы толщина арктического морского льда значительно уменьшилась. Исследовательский центр «Catlin Arctic Survey» сообщает, что средняя толщина льда составляет 1,8 м в северной части моря Бофорта – области, которая традиционно содержит более старый и толстый лёд.",
+        answer: "Исследовательский центр «Catlin Arctic Survey» сообщает, что средняя толщина льда составляет 1,8 м в северной части моря Бофорта – области, которая традиционно содержит более старый и толстый лёд.",
         versions: [
             "Средняя толщина – 1,8 метра",
             "Средняя толщина – 5 метров",
@@ -10826,7 +10826,13 @@ function resize(){
       }else{
         nextbtn.css({"top": answer.height() + 60 });
       }
-
+      var imgW = 1366;
+      var imgH = 768;
+      var contW = $(".covervid-video").width();
+      var contH = $(".covervid-video").height();
+      if(contW < $(window).width()){
+        $(".covervid-video").css({width: $(window).width(), height: "auto"})
+      }
 }
 
 function start(){
@@ -10844,7 +10850,7 @@ function nextQuestion(){
   answers.css({backgroundColor: "rgba(0, 59, 118,0.8)"})
 
   cQ++;
-console.log(cQ);
+// console.log(cQ);
   if(cQ <= tQ){
     counter
         .stop()
@@ -10857,7 +10863,6 @@ console.log(cQ);
 
     if(!questions[cQ-1].subanswer){
       textdescr.addClass("close");
-      // console.log("subanswer");
     }else{
       textdescr.removeClass("close");
       currSubQ = 0;
@@ -10975,8 +10980,11 @@ function changeImage(n){
 
   if(currSubQ == 0)
     currSubQ = 7;
-
-  imgDecr.css({opacity: 0}).stop().attr("src", "img/slider/" + currSubQ + ".svg").animate({opacity: 1}, 300);
+  if ( $(window).width() > 580 ){
+    imgDecr.css({opacity: 0}).stop().attr("src", "img/slider/" + currSubQ + ".svg").animate({opacity: 1}, 300);
+  }else{
+    imgDecr.css({opacity: 0}).stop().attr("src", "img/slider_mob/" + currSubQ + ".svg").animate({opacity: 1}, 300);
+  }
 }
 
 function showAnswer(){
@@ -11015,56 +11023,167 @@ function shuffle(o){
   return o;
 };
 
+function closeDown(btn, block){
+  $(btn).click(function(){
+    $(block).animate({ bottom: "-500px"}, 1100);
+  });
+}
+
 start()
 
-$(".btn-close").click(function(){
-  $(".ftr-mail").animate({
-    bottom: "-500px"
-  }, 1100);
-});
+closeDown(".btn-close", ".ftr-mail")
+closeDown(".ftr_mob_btn", ".ftr_mob")
 
-$(".ftr").click(function(){
-  // $(".bg").slideUp( 800 );
-  $(".ftr-bg").css({opacity: 0});
-  $(".vic").animate({
-    top: "-1500px"
-  }, 1100);
-});
+// $(".btn-close").click(function(){
+//   $(".ftr-mail").animate({
+//     bottom: "-500px"
+//   }, 1100);
+// });
+
 
 $(".ftr").hover(function(){
   //$("#animation-begin").beginElement();
   animationBegin.beginElement();
   animationPolylineBegin.beginElement();
   // $(".video").removeClass("close");
-  $(".ftr > .text").stop().animate({
-    bottom: "35px"
-  }, 300);
-  $(".show-video").stop().animate({opacity: 1}, 300);
+  // $(".ftr > .ftr-text").stop().animate({
+  //   bottom: "0px"
+  // }, 300);
+  $(".show_video").stop().animate({opacity: 1}, 300);
 }, function() {
   animationEnd.beginElement();
   animationPolylineEnd.beginElement();
   // animationEnd.beginElement();
-  $(".show-video").stop().animate({opacity: 0}, 100);
-   $(".ftr > .text").stop().animate({
-    bottom: "15px"
-  }, 300);
+  $(".show_video").stop().animate({opacity: 0}, 100);
+  //  $(".ftr > .ftr-text").stop().animate({
+  //   bottom: "-15px"
+  // }, 300);
 
   // $(".ftr-mail").animate({ bottom: "0" }, 800);
 });
 
+
+$(".ftr").click(function(){
+  // $(".ftr-bg").css({opacity: 0});
+  $(".ftr").css({background: "transparent"});
+  $("video.covervid-video-ts").get(0).play();
+
+  // setTimeout(function() {
+  //   $(".ftr-mail").css("bottom", "0");
+  //   $(".ftr-logo").css("bottom", "2%");
+  // }, 3000);
+
+
+  $(".vic").animate({
+    top: "-1500px"
+  }, 1100);
+});
+
 $(".ftr-vid").click(function(){
-  // $(".bg").slideDown( 800 );
+  $(".ftr").css({background: "rgba(0,0,0,0.5)"});
+  $("video.covervid-video-ts").get(0).pause();
   $(".vic").animate({
     top: "0"
   }, 1100);
+});
+
+$(".cover_mob_button").click(function(){
+  // console.log(123);
+  // $(".cover_mob").animate({top: "-1000"}, 1100);
+  // $(".page").animate({"margin-top": "0"}, 1100);
+  $(".cover_mob").animate({
+    opacity: 0
+  }, 700, function(){
+    $(".cover_mob").css("display", "none");
+    $(".page").css("display", "block");
+    // $(".page").animate({"margin-top": "0"}, 900);
+  });
+
 
 });
 
+$(".cover_button").click(function(){
+  // $(".cover").animate({opacity: "0"}, 2100);
+
+  $(".cover").animate({
+    opacity: 0
+  }, 2100, function(){
+    $(".cover").css("display", "none");
+  });
+
+});
+
+
+
+
+$(document).ready(function(){
+  $('.cover_text_1').fadeTo( 3500, 1 );
+  $('.cover_logo').animate( {opacity: 1 }, 3500);
+
+  setTimeout(function() {
+
+    $(".cover_text_1").fadeTo( 100, 0, function(){
+      $(".cover_text_1").css("display", "none");
+      $('.cover_text_2').fadeTo( 1900, 1 );
+      $('.cover_button').fadeTo( 2300, 1 );
+        $(".cover_logo > img").fadeTo( 10, 0, function(){
+          $(".cover_logo > img").attr("src", "img/cover_logo1.svg");
+          $(".cover_logo > img").fadeTo( 10, 1);
+        } );
+      
+    });
+
+  }, 1000);
+
+  setTimeout(function() {
+    $('.ftr-logo').animate({"opacity": "1"}, 2100);
+
+    $(".vid").css("opacity", "1");
+    $(".page").css("opacity", "1");
+    $(".social").css("opacity", "1");
+    $(".ftr").css("opacity", "1");
+
+  }, 500);
+
+
+
+  $('video.covervid-video-ts').on('ended',function(){
+    $(".ftr-mail").animate({"bottom": "0"}, 1000);
+    $(".ftr-logo").animate({"bottom": "2%"}, 1000);
+  });
+
+  // $(".cover_logo").click(function(){
+  //   $(".cover_text_1").css({"display": "none"});
+  // });
+//   $(".vid-wrapper").css({"width": $(window).width() } );
+//     console.log($(window).width())
+//   // $(".ftr").click(function(){
+//     // $(".vic").slideUp( 800 );
+//     // $(".b1").slideDown(1000);
+//     $("video").get(0).play();
+//   // });
+
+//   // $(".ftr-vid").click(function(){
+//     // $(".vic").slideDown( 800 );
+//     // $(".b1").slideUp(100);
+//     // $("video").get(0).pause();
+//   // });
+ 
+
+//   // $(".cover_logo").
+// // $(".cover").animate({opacity: "0"}, 2100);
+
+  
+});
+
+
+
+
+
+
+
+
  resize();
-
-// $(".cover-title").fitText(0.9);
-// $(".cover-button").fitText(1.4);
-
 // Generated by CoffeeScript 1.7.1
 (function() {
   var XMLHttpFactories, ajax, applyStyleTest, browserSupportsUnitsNatively, clearStyleTests, createXMLHTTPObject, getViewportSize, initLayoutEngine, testElementStyle, testVHSupport, testVMinSupport, testVWSupport;
