@@ -10816,7 +10816,8 @@ var animationPolylineBegin = document.getElementById("animation-polyline-begin")
 var animationPolylineEnd = document.getElementById("animation-polyline-end");
 
 $(window).on('resize', function(){
-   resize()
+   resize();
+   resizeVideo();
 })
 
 function resizeVideo(){
@@ -11149,7 +11150,6 @@ $(document).ready(function(){
 
   setTimeout(function() {
     $('.ftr-logo').animate({"opacity": "1"}, 2100);
-
     $(".vid").css("opacity", "1");
     $(".page").css("opacity", "1");
     $(".social").css("opacity", "1");
@@ -11161,7 +11161,7 @@ $(document).ready(function(){
 
   $('video.covervid-video-ts').on('ended',function(){
     $(".ftr-mail").animate({"bottom": "0"}, 1000);
-    $(".ftr-logo").animate({"bottom": "2%"}, 1000);
+    // $("..ftr-mail-logo").animate({"bottom": "2%"}, 1000);
   });
 
 
