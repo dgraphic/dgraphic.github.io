@@ -12,13 +12,9 @@
     <meta property="og:description" content="">
     <meta property="og:url" content="">
     <meta property="og:image" content="">
-    <!--script(src="http://code.jquery.com/jquery-latest.js")-->
-    <!--script(type='text/javascript')
-    //$(document).ready(function(){ 
-    //    console.log(123);
-    //});
-    
-    -->
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript">$("#video_big").load(function(){ console.log("video load"); });
+    </script>
     <link rel="stylesheet" href="css/app.css">
     <script src="js/modernizr.js"></script>
     <!--head section-->
@@ -178,7 +174,7 @@ Please <a href="http://browsehappy.com/" title="browsehappy">upgrade your browse
       </div>
       <div class="vid">
         <div class="vid-wrapper">
-          <video class="covervid-video-ts">
+          <video id="video_big" class="covervid-video-ts">
             <source src="video/vid.mp4" type="video/mp4">
             <source src="video/vid.webm" type="video/webm">
           </video>
