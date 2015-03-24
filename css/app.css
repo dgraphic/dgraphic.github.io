@@ -664,14 +664,6 @@ h6 {
 .close {
   display: none;
 }
-.vid,
-.page,
-.social,
-.ftr {
-  opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: alpha(opacity=0);
-}
 html,
 body {
   width: 100%;
@@ -692,6 +684,7 @@ body {
   position: relative;
 }
 .vic {
+  visibility: hidden;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -1212,9 +1205,6 @@ p.question-counter {
   padding: 5px;
 }
 .sound {
-  opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: alpha(opacity=0);
   position: absolute;
   left: 25px;
   bottom: 20%;
@@ -1323,6 +1313,7 @@ div.bnr {
   position: absolute;
 }
 .vid {
+  visibility: hidden;
   width: 100%;
   height: 100%;
   position: absolute;

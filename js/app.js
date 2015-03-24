@@ -11229,12 +11229,16 @@ $(document).ready(function(){
   }, 1000);
 
   setTimeout(function() {
+    $(".vic").css("visibility", "visible");
+    $(".vid").css("visibility", "visible");
+
     $('.ftr-logo').animate({"opacity": "1"}, 2100);
-    $(".vid").css("opacity", "1");
-    $(".page").css("opacity", "1");
-    $(".social").css("opacity", "1");
-    $(".ftr").css("opacity", "1");
-    $(".sound").css("opacity", "1");
+    
+    // $(".vid").css("opacity", "1");
+    // $(".page").css("opacity", "1");
+    // $(".social").css("opacity", "1");
+    // $(".ftr").css("opacity", "1");
+    // $(".sound").css("opacity", "1");
 
   }, 500);
 
