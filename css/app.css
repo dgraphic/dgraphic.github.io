@@ -698,11 +698,6 @@ body {
   top: 0;
   left: 0;
   z-index: 2;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  background-image: url("../img/bg.png");
 }
 .vic .vid-wrapper {
   height: auto;
