@@ -10797,53 +10797,74 @@ var rightAnswers = [];  //
 // selectors
 var counter = $('.question-counter');
 var question = $('.question-text');
+var questionImg = $('img.questions_img');
 var answers = $('.option');
 var flash = $('.flash');
 var answer = $('.answer');
 var answertitle = answer.find('.title');
 var answertext = answer.find('.text');
-var nextbtn = $('.button');
+var nextbtnQ = $('.questions_button');
+var nextbtnA = $('.answer_button');
 var result = $('.result');
 var again = $('.again');
 var textdescr = $(".text-descr");
-var prevDecr = $("a.prev-decr");
-var nextDecr = $("a.next-decr");
+var prevDecr = $(".prev_descr");
+var nextDecr = $(".next_descr");
 var imgDecr = $("img.img-decr");
 var currSubQ = 0;
-var animationBegin = document.getElementById("animation-begin");
-var animationEnd   = document.getElementById("animation-end");
-var animationPolylineBegin = document.getElementById("animation-polyline-begin");
-var animationPolylineEnd = document.getElementById("animation-polyline-end");
+var resultQ = null;
+var soundClick = $('audio#sound_click');
+var soundBg = $('audio#sound_bg');
+var sound = true;
+
+// var animationBegin = document.getElementById("animation-begin");
+// var animationEnd   = document.getElementById("animation-end");
+// var animationPolylineBegin = document.getElementById("animation-polyline-begin");
+// var animationPolylineEnd = document.getElementById("animation-polyline-end");
 
 $(window).on('resize', function(){
    resize();
    resizeVideo();
 })
 
+$(window).load(function(){
+  resizeVideo();
+});
+
 function resizeVideo(){
-    var imgW = 1366;
-    var imgH = 768;
-    var contW = $(".covervid-video").width();
-    var contH = $(".covervid-video").height();
-    if(contW < $(window).width()){
-      $(".covervid-video").css({width: $(window).width(), height: "auto"})
+    //var imgW = 1366;
+    //var imgH = 768;
+    var winW = $(window).width();
+    var winH = $(window).height();
+
+    if( $(".covervid-video").width() < winW ){
+      $(".covervid-video").css({width: winW, height: "auto"})
     }
-    var contW = $(".covervid-video-ts").width();
-    var contH = $(".covervid-video-ts").height();
-    if(contW < $(window).width()){
-      $(".covervid-video-ts").css({width: $(window).width(), height: "auto"})
+    if( $(".covervid-video-ts").width() < winW ){
+      $(".covervid-video-ts").css({width: winW, height: "auto"})
     }
+
+    if($(".covervid-video").height() < winH){
+      $(".covervid-video").css({height: "100%", width: "auto"})
+    }
+    if($(".covervid-video-ts").height() < winH){
+      $(".covervid-video-ts").css({height: "100%", width: "auto"})
+    }
+
+   // console.log(2222);  
 
 }
 
 function resize(){
 
       if ( $(window).width() > 1160 ){
-        nextbtn.css({"top": ( ( answer.height() + 30 ) / 2) - 35 });
+        nextbtnQ.css({"top": ( $(".questions").height() - 264) + 116});
+        nextbtnA.css({"top":  (answer.height() / 2) - 20 } );
       }else{
-        nextbtn.css({"top": answer.height() + 60 });
+        nextbtnQ.css({"top":  $(".questions").height() + 60 });
+        nextbtnA.css({"top":  answer.height() + 50 } );
       }
-      resizeVideo();
+      // console.log( "pos: "+$(".questions").position().top + " offset: " + $(".questions").offset().top  + " height: " + $(".questions").height());
 }
 
 function start(){
@@ -10854,12 +10875,13 @@ function start(){
 function nextQuestion(){
   answers.removeClass('checked')
       .css({opacity: 1})
-      .find('.img').stop().css({opacity: 0});
-
+      .find('.checkbox_img').stop().css({opacity: 0});
   answer.addClass('close');
-  nextbtn.addClass('close');
-  answers.css({backgroundColor: "rgba(0, 59, 118,0.8)"})
-
+  // nextbtn.addClass('close');
+  // nextbtn.find('span').text('ОТВЕТИТЬ')
+  // answers.css({backgroundColor: "rgba(0, 59, 118,0.8)"})
+  answers.css({backgroundColor: "transparent"})
+  $(".questions").css({"opacity": 1});
   cQ++;
 // console.log(cQ);
   if(cQ <= tQ){
@@ -10870,6 +10892,11 @@ function nextQuestion(){
         .stop()
         .css({opacity: 0})
         .text(questions[cQ-1].question)
+        .animate({opacity: 1}, 200);
+    questionImg
+        .stop()
+        .css({opacity: 0})
+        .attr("src", "img/questions/" + cQ + ".jpg" )
         .animate({opacity: 1}, 200);
 
     if(!questions[cQ-1].subanswer){
@@ -10904,6 +10931,7 @@ function fff(n){
 }
 function calculateResult(){
   var count = 0;
+  nextbtnA.find('span').text('СЛЕДУЮЩИЙ ВОПРОС')
   $.each(userAnswers, function(i, e){
     if(userAnswers[i] == rightAnswers[i]){
       count++;
@@ -10928,6 +10956,7 @@ function calculateResult(){
   counter.addClass("close");
   question.addClass("close");
   answer.addClass("close");
+//  nextbtn.css("opacity", 0);
   $(".questions").addClass("close");
   result.removeClass("close");
 }
@@ -10936,23 +10965,50 @@ function init(){
   answers
       .on('mouseover', function(){
         if(!$(this).hasClass('checked'))
-          $(this).find('.img').stop().animate({opacity: 0.3}, 300);
+          $(this).find('.checkbox_img').stop().animate({opacity: 0.3}, 300);
       })
       .on('mouseout', function(){
         if(!$(this).hasClass('checked'))
-          $(this).find('.img').stop().animate({opacity: 0}, 300);
+          $(this).find('.checkbox_img').stop().animate({opacity: 0}, 300);
       })
       .on('click', function(){
-        $(this).addClass('checked');
-        $(this).find('.img').stop().animate({opacity: 1}, 300);
-        userAnswers.push(answers.index(this))
-        showAnswer()
+        if ( $(this).hasClass('checked')){
+          $(this).removeClass('checked');
+          $(this).find('.checkbox_img').stop().animate({opacity: 0}, 300);
+          if ($(".questions").find(".checked").length == 0) {
+            nextbtnQ.css({opacity: 0, display: "none"});
+          }
+        }else{
+          if ( $(".questions").find(".checked").length > 0){
+            $(".questions").find(".checked").removeClass("checked").find('.checkbox_img').stop().animate({opacity: 0}, 300);
+          }
+          $(this).addClass('checked');
+          $(this).find('.checkbox_img').stop().animate({opacity: 1}, 300);
+          nextbtnQ.animate({opacity: 1}, 200).css({display: "table"});
+          resultQ = answers.index(this);
+          // console.log(" 1: " + resultQ);
+        }
+
+        //showAnswer()
+        // nextbtn.removeClass('close').stop().css({opacity: 1})
+        // nextbtn.find('span').text('СЛЕДУЮЩИЙ ВОПРОС')
+        // answer.removeClass('close').stop().css({opacity: 1})
       })
 
-  nextbtn.on('click', function(){
+  nextbtnQ.on('click', function(){
+    // console.log(" 2: " + resultQ);
+    userAnswers.push(resultQ)
+    showAnswer();
+    nextbtnQ.css({opacity: 0, display: "none"});
+    nextbtnA.animate({opacity: 1}, 300).css({display: "table"});
+  });
+
+
+  nextbtnA.on('click', function(){
     nextQuestion();
-    // console.log(111112222);
-  })
+    nextbtnA.css({opacity: 0, display: "none"});
+    resize();
+  });
 
   // answer.on('click', function(){
   //   nextQuestion();
@@ -10977,7 +11033,7 @@ function init(){
     counter.removeClass("close");
     question.removeClass("close");
     $(".questions").removeClass("close");
-    nextbtn.find('p').text('Следующий вопрос')
+    // nextbtn.find('p').text('Следующий вопрос')
 
     nextQuestion();
   });
@@ -10999,34 +11055,41 @@ function changeImage(n){
 }
 
 function showAnswer(){
+  // nextbtn.find('span').text('СЛЕДУЮЩИЙ ВОПРОС')
   if(cQ == tQ){
-    nextbtn.find('p').text('посмотреть результат')
+    nextbtnA.find('span').text('ПОСМОТРЕТЬ РЕЗУЛЬТАТ')
   }
-
   answer.removeClass('close').stop().css({opacity: 0})
-  nextbtn.removeClass('close').stop().css({opacity: 0})
+  // nextbtn.removeClass('close').stop().css({opacity: 0})
 
   answertitle.html(questions[cQ-1].versions[0])
   answertext.html(questions[cQ-1].answer)
 
   if(userAnswers[cQ-1] == rightAnswers[cQ-1]){
     answers.eq(userAnswers[userAnswers.length-1]).css({backgroundColor: "rgba(0,79,43,0.8)"})
+    $("p.status").text("Ваш ответ верен");
   }else{
     answers.eq(userAnswers[userAnswers.length-1]).css({backgroundColor: "rgba(153,0,0,0.8)"})
+    $("p.status").text("увы, Ваш ответ неверен");
   }
 
   flash.animate({opacity: 0.5}, 200, function(){
     flash.animate({opacity: 0}, 100, function(){
       answer.animate({opacity: 1}, 400);
-      nextbtn.animate({opacity: 1}, 400);
+      // nextbtn.animate({opacity: 1}, 400);
       answers.animate({opacity: 0}, 400);
-      if ( $(window).width() > 1160 ){
-        nextbtn.css({"top": ( ( answer.height() + 30 ) / 2) - 35 });
-      }else{
-        nextbtn.css({"top": answer.height() + 60 });
-      }
+      $(".questions").css({"opacity": 0});
+      // if ( $(window).width() > 1160 ){
+      //   nextbtn.css({"top": ( ( answer.height() + 30 ) / 2) - 35 });
+      // }else{
+      //   nextbtn.css({"top": answer.height() + 60 });
+      // }
+
+
     })
   })
+
+  resize();
 }
 
 function shuffle(o){
@@ -11038,6 +11101,17 @@ function closeDown(btn, block){
   $(btn).click(function(){
     $(block).animate({ bottom: "-500px"}, 1100);
   });
+}
+
+function soundOff(){
+  soundBg.get(0).pause();
+  $("g.sound_off").css("visibility", "visible");
+  $("g.sound_on").css("visibility", "hidden");
+}
+function soundOn(){
+  soundBg.get(0).play();
+  $("g.sound_off").css("visibility", "hidden");
+  $("g.sound_on").css("visibility", "visible");
 }
 
 start()
@@ -11053,18 +11127,18 @@ closeDown(".ftr_mob_btn", ".ftr_mob")
 
 
 $(".ftr").hover(function(){
-  //$("#animation-begin").beginElement();
-  animationBegin.beginElement();
-  animationPolylineBegin.beginElement();
+  // animationBegin.beginElement();
+  // animationPolylineBegin.beginElement();
   // $(".video").removeClass("close");
   // $(".ftr > .ftr-text").stop().animate({
   //   bottom: "0px"
   // }, 300);
+  $("#svg_line_big").stop().animate({"top": "0"}, 500);
   $(".show_video").stop().animate({opacity: 1}, 300);
 }, function() {
-  animationEnd.beginElement();
-  animationPolylineEnd.beginElement();
   // animationEnd.beginElement();
+  // animationPolylineEnd.beginElement();
+  $("#svg_line_big").stop().animate({"top": "-40px"}, 1000);
   $(".show_video").stop().animate({opacity: 0}, 100);
   //  $(".ftr > .ftr-text").stop().animate({
   //   bottom: "-15px"
@@ -11077,7 +11151,9 @@ $(".ftr").hover(function(){
 $(".ftr").click(function(){
   // $(".ftr-bg").css({opacity: 0});
   $(".ftr").css({background: "transparent"});
+  $(".vic").css({position: "relative"});
   $("video.covervid-video-ts").get(0).play();
+  soundOff();
 
   // setTimeout(function() {
   //   $(".ftr-mail").css("bottom", "0");
@@ -11088,15 +11164,19 @@ $(".ftr").click(function(){
     top: "-1500px"
   }, 1100);
 
-  resizeVideo();
+  // resizeVideo();
 });
 
 $(".ftr-vid").click(function(){
   $(".ftr").css({background: "rgba(0,0,0,0.5)"});
+  $(".vic").css({position: "absolute"});
   $("video.covervid-video-ts").get(0).pause();
+  // if ( $("g.sound_on").css("visibility") == "hidden" ){ soundOn(); }
+  if (sound == true) { soundOn(); }
+  console.log( $("g.sound_on").css("visibility") );
   $(".vic").animate({
     top: "0"
-  }, 1100);
+  }, 700);
 });
 
 $(".cover_mob_button").click(function(){
@@ -11116,33 +11196,33 @@ $(".cover_mob_button").click(function(){
 
 $(".cover_button").click(function(){
   // $(".cover").animate({opacity: "0"}, 2100);
-
+  soundBg.get(0).play();
   $(".cover").animate({
     opacity: 0
   }, 2100, function(){
     $(".cover").css("display", "none");
   });
 
-  resizeVideo();
+  // resizeVideo();
 });
-
-
-
 
 $(document).ready(function(){
   $('.cover_text_1').fadeTo( 3500, 1 );
   $('.cover_logo').animate( {opacity: 1 }, 3500);
 
   setTimeout(function() {
-
     $(".cover_text_1").fadeTo( 100, 0, function(){
       $(".cover_text_1").css("display", "none");
       $('.cover_text_2').fadeTo( 1900, 1 );
       $('.cover_button').fadeTo( 2300, 1 );
-        $(".cover_logo > img").fadeTo( 10, 0, function(){
-          $(".cover_logo > img").attr("src", "img/cover_logo1.svg");
-          $(".cover_logo > img").fadeTo( 10, 1);
-        } );
+      // $("#svg_bg").attr("d", $("#svg_bg").attr("dd"));
+      // $("#svg_text").css("opacity", 0);
+      $("#svg_bg").animate({"opacity": 0}, 1500);
+      $("#svg_text").animate({"opacity": 1}, 2500);
+        // $(".cover_logo > img").fadeTo( 0, 0, function(){
+        //   $(".cover_logo > img").attr("src", "img/cover_logo1.svg");
+        //   $(".cover_logo > img").fadeTo( 0, 1);
+        // } );
       
     });
 
@@ -11154,49 +11234,44 @@ $(document).ready(function(){
     $(".page").css("opacity", "1");
     $(".social").css("opacity", "1");
     $(".ftr").css("opacity", "1");
+    $(".sound").css("opacity", "1");
 
   }, 500);
 
 
-
   $('video.covervid-video-ts').on('ended',function(){
     $(".ftr-mail").animate({"bottom": "0"}, 1000);
-    // $("..ftr-mail-logo").animate({"bottom": "2%"}, 1000);
+    $(".vid_social").animate({"opacity": "1"}, 1000);
+    $(".covervid-video-ts").css("cursor","pointer");
   });
 
 
-  // $(".cover_logo").click(function(){
-  //   $(".cover_text_1").css({"display": "none"});
-  // });
-//   $(".vid-wrapper").css({"width": $(window).width() } );
-//     console.log($(window).width())
-//   // $(".ftr").click(function(){
-//     // $(".vic").slideUp( 800 );
-//     // $(".b1").slideDown(1000);
-//     $("video").get(0).play();
-//   // });
+  $('video.covervid-video-ts').click(function(){
+    $("video.covervid-video-ts").get(0).play();
+    $(".ftr-mail").animate({"bottom": "-200px"}, 1000);
+    $(".vid_social").animate({"opacity": "0"}, 1000);
+    $(".covervid-video-ts").css("cursor","auto");
+  });
 
-//   // $(".ftr-vid").click(function(){
-//     // $(".vic").slideDown( 800 );
-//     // $(".b1").slideUp(100);
-//     // $("video").get(0).pause();
-//   // });
- 
 
-//   // $(".cover_logo").
-// // $(".cover").animate({opacity: "0"}, 2100);
 
-  
+  $(".sound").click(function(){
+    if ( $("g.sound_on").css("visibility") == "visible" ){
+      soundOff();
+      sound = false;
+    }else{
+      soundOn();
+      sound = true;
+    }
+  });
+  nextbtnQ.click( function(){ soundClick.get(0).play() });
+  nextbtnA.click( function(){ soundClick.get(0).play() });
+
 });
 
 
-
-
-
-
-
-
- resize();
+resize();
+resizeVideo();
 // Generated by CoffeeScript 1.7.1
 (function() {
   var XMLHttpFactories, ajax, applyStyleTest, browserSupportsUnitsNatively, clearStyleTests, createXMLHTTPObject, getViewportSize, initLayoutEngine, testElementStyle, testVHSupport, testVMinSupport, testVWSupport;
