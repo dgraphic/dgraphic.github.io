@@ -1,9 +1,0 @@
-@font-face {
-    font-family: 'GeometriaExtaBold';
-    src: url('fonts/GeometriaExtaBold.eot');
-    src: url('fonts/GeometriaExtaBold.eot') format('embedded-opentype'),
-         url('fonts/GeometriaExtaBold.woff2') format('woff2'),
-         url('fonts/GeometriaExtaBold.woff') format('woff'),
-         url('fonts/GeometriaExtaBold.ttf') format('truetype'),
-         url('fonts/GeometriaExtaBold.svg#GeometriaExtaBold') format('svg');
-}

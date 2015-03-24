@@ -1,9 +1,0 @@
-@font-face {
-    font-family: 'GeometriaLight';
-    src: url('fonts/GeometriaLight.eot');
-    src: url('fonts/GeometriaLight.eot') format('embedded-opentype'),
-         url('fonts/GeometriaLight.woff2') format('woff2'),
-         url('fonts/GeometriaLight.woff') format('woff'),
-         url('fonts/GeometriaLight.ttf') format('truetype'),
-         url('fonts/GeometriaLight.svg#GeometriaLight') format('svg');
-}
