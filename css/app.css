@@ -1414,7 +1414,6 @@ p.question-counter {
   background: rgba(0,59,118,0.8);
   color: #fff;
   width: 672px;
-  min-height: 360px;
   padding: 15px 50px;
   left: 10px;
   box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.43);
@@ -1430,6 +1429,7 @@ p.question-counter {
 }
 .answer .text-descr {
   margin-left: 15px;
+  margin-bottom: 20px;
 }
 @media only screen and (max-width: 580px) {
   .answer .text-descr {
@@ -1561,11 +1561,24 @@ p.question-counter {
   top: 66px;
   right: 20px;
 }
+.social .social-likes,
+.vid_social .social-likes {
+  font-size: 13px;
+}
+.social .social-likes__counter,
+.vid_social .social-likes__counter {
+  margin-top: 0.2em;
+}
 .social .social-likes__widget,
 .vid_social .social-likes__widget {
   margin: 0.2em;
   min-width: 11em;
   border-radius: 3px;
+}
+.social .social-likes__button,
+.vid_social .social-likes__button {
+  font-weight: 400;
+  font-family: Geometria, Arial, sans-serif;
 }
 .social .social_block_vk,
 .vid_social .social_block_vk,

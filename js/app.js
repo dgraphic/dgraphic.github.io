@@ -11218,8 +11218,8 @@ $(".cover_button").click(function(){
 });
 
 $(document).ready(function(){
-  $('.cover_text_1').fadeTo( 3500, 1 );
-  $('.cover_logo').animate( {opacity: 1 }, 3500);
+  $('.cover_text_1').fadeTo( 2000, 1 );
+  $('.cover_logo').animate( {opacity: 1 }, 2000);
 
   setTimeout(function() {
     $(".cover_text_1").fadeTo( 100, 0, function(){
