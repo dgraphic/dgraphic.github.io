@@ -10551,151 +10551,7 @@ return jQuery;
 /**
  * Created by kuteynikov on 06.03.2015.
  */
-var questions = [
-    {
-        question: "Название какого созвездия заложено в корне слова «Арктика»?",
-        answer: "Название «Арктика» произошло от древнегреческого слова «Арктос». Слово это имеет значение «медведица» (второе значение – север) и обозначает созвездие <b>Большой Медведицы</b>. В древности путешественники замечали, что за время пути на север созвездие Большая Медведица и вместе с нею Полярная звезда постепенно поднимаются над горизонтом. Значит, решили они, где-то далеко на севере эти звезды должны находиться над головой и сиять в зените. Впоследствии именно эти области крайнего севера, где это предположение обретало реальность, и назвали Арктикой.",
-        versions: [
-            "Большая Медведица",
-            "Северная Корона",
-            "Летучая Рыба",
-            "Малый Лев"
-        ]
-    },
-    {
-        question: "Кто считается первооткрывателем Арктики?",
-        answer: "<b>Пифей</b> не был ни купцом, ни пиратом – он был ученым, обладавшим обширными географическими, астрономическими, этнографическими познаниями. Где-то между 360 и 320 годами до н.э. Пифей отправился в свое путешествие, в ходе которого побывал в области, лежащей где-то между 62-й и 64-й параллелями, – в край белых ночей близ самого Полярного круга. Судно Пифея побывало в водах Северного моря и Балтики, а может, и в морях, омывающих Норвегию, Исландию или даже Гренландию. Он впервые доставил в цивилизованный мир сведения о «свернувшемся море», т.е. о покрытом плавучими льдами океане, который лишь совсем недавно, в 1935 году, получил официальное наименование «Северный Ледовитый».",
-        versions: [
-            "Грек Пифей из Массалии",
-            "Казачий атаман Семен Дежнев",
-            "Норвежцы Фритьоф Нансен и Руаль Амундсен",
-            "Американцы Джон Франклин и Роберт Пири"
-        ]
-    },
-    {
-        question: "Как называется оптическое атмосферное явление в Арктике, благодаря которому можно наблюдать эффект «нескольких солнц»?",
-        answer: "В арктических морях можно наблюдать явление ненормальной рефракции. Это преломление света в атмосфере, которое возникает из-за разности температур нижних слоев воздуха и воды. Оно создает в Арктике немало помех. Так наблюдаемые на горизонте предметы и пейзажи искажаются в связи с тем, что луч зрения преломляется в горизонтальном и вертикальном направлениях.",
-        versions: [
-            "Рефракция",
-            "Туман",
-            "Дефрагментация",
-            "Мираж"
-        ]
-    },
-    {
-        question: "Сколько длится полярный день на Северном Полюсе?",
-        answer: "Полярным днем называется период, когда Солнце не заходит за горизонт дольше одних суток. На Северном полюсе полярный день продолжается около 186 суток и 10 часов, приблизительно с 18 марта по 26 сентября, но фактически, вследствие рефракции света, день продолжается около 193 суток.",
-        versions: [
-            "От 186 до 193 суток",
-            "От 142 до 153 суток",
-            "От 34 до 56 суток",
-            "От 16 до 37 суток"
-        ]
-    },
-    {
-        question: "Какой из перечисленных народов является коренным народом Арктики? ",
-        answer: "Это один из малочисленных (около 45 тысяч человек) коренных народов Арктики, занимающий обширную территорию Севера европейской части России и Западной Сибири от р. Мезень на западе до низовьев Енисея на востоке. Ненецкий язык признают родным 77,1% ненцев. Самоназвание ненэць — «человек», ненэй ненэць — «настоящий человек» было введено в официальное употребление в 1930 г. Первоначально ненцев называли самоедами или самоедами-юраками. Упоминание об этом имеется в древнейшей русской летописи «Повесть временных лет», относящейся к началу XII в. Происхождение термина «самоед» трактуется по-разному. Наиболее вероятным представляется его возникновение от saam-jedna — «земля саамов».",
-        versions: [
-            "Ненцы",
-            "Хакасы ",
-            "Шорцы",
-            "Татары"
-        ]
-    },
-    {
-        question: "Запасов какого полезного ископаемого больше всего в Арктике?",
-        answer: "В Арктике больше всего <b>природного газа</b>. Неразведанные залежи углеводородов в Арктике оцениваются примерно в 90 млрд баррелей нефти, 1669 трлн куб. футов газа и 44 млрд баррелей природного газоконденсата.",
-        versions: [
-            "Природный газ",
-            "Нефть",
-            "Золото",
-            "Никель"
-        ]
-    },
-    {
-        question: "Как называется нефтедобывающая платформа, установленная на шельфе Печорского моря?",
-        answer: "Морская ледостойкая стационарная платформа (МЛСП) «Приразломная» является первой и пока единственной платформой, ведущей добычу нефти на российском арктическом шельфе.",
-        subanswer: [
-            'img/slider/1.svg', 'img/slider/2.svg', 'img/slider/3.svg', 'img/slider/4.svg', 'img/slider/5.svg', 'img/slider/6.svg', 'img/slider/7.svg'
-        ],
-        versions: [
-            "Приразломная",
-            "Пионер",
-            "Вест Альфа",
-            "Арктическая"
-        ]
-    },
-    {
-        question: "Какая из российских компаний первой начала нефтедобычу на арктическом шельфе с платформы, установленной в море?",
-        answer: "Первой компанией, начавшей добычу нефти на шельфе Арктики, стала компания <b>«Газпром нефть»</b>. Добыча ведется с морской ледостойкой стационарной платформы «Приразломная». Первая нефть была добыта с платформы в декабре 2013 года. Доставка нефти потребителям Северо-Западной Европы осуществляется с помощью новых российских танкеров усиленного ледового класса. Всего в 2014 году c платформы «Приразломная» было отгружено 300 тыс. тонн нефти.",
-        versions: [
-            "«Газпром нефть»",
-            "«Лукойл»",
-            "«Роснефть»",
-            "«Сургутнефтегаз»"
-        ]
-    },
-    {
-        question: "Какова сегодня толщина арктического льда?",
-        answer: "Исследовательский центр «Catlin Arctic Survey» сообщает, что средняя толщина льда составляет 1,8 м в северной части моря Бофорта – области, которая традиционно содержит более старый и толстый лёд.",
-        versions: [
-            "Средняя толщина – 1,8 метра",
-            "Средняя толщина – 5 метров",
-            "Средняя толщина – 47 метров",
-            "Средняя толщина – около 100 метров"
-        ]
-    },
-    {
-        question: "Когда славяне начали осваивать Северный ледовитый океан?",
-        answer: "<b>В XI – начале XII века</b> первые славяне вышли на берега Белого, а затем и Баренцева морей. В XIV веке они уже плавали к Новой Земле, а позднее – к Шпицбергену.",
-        versions: [
-            "в XI – начале XII века",
-            "конец XV – начало XVI века",
-            "середина IX века",
-            "вторая половина XIII века"
-        ]
-    },
-    {
-        question: "Какая страна первой в мире начала использовать ледоколы?",
-        answer: "Первый в мире ледокол «Ермак» был построен в Ньюкасле на стапелях британской фирмы Armstrong Whitworth в 1897-1898 гг. по заказу России. Это было первое в мире судно подобного класса, способное форсировать тяжелые льды двухметровой толщины. Руководил строительством адмирал Макаров.",
-        versions: [
-            "Россия",
-            "Великобритания",
-            "Дания",
-            "США"
-        ]
-    },
-    {
-        question: "Под чьим руководством в 1937 году стартовала первая советская обитаемая дрейфующая полярная станция?",
-        answer: "Первая научно-исследовательская дрейфующая станция «Северный полюс-1» была организована под руководством <b>Ивана Папанина</b>. Девять месяцев продлился дрейф, во время которого полярники вели наблюдения. Льдина оказалась в 2850 км от первоначального места высадки на нее людей. У берегов Гренландии исследователи поднялись на борт советских ледоколов.",
-        versions: [
-            "Иван Папанин",
-            "Отто Шмидт",
-            "Витус Беринг",
-            "Евгений Федоров"
-        ]
-    },
-    {
-        question: "Флаг какой страны был установлен на океаническом дне Северного полюса в 2007 году?",
-        answer: "Титановый флаг России был установлен на океаническом дне Северного полюса на глубине 4 261 метр двумя глубоководными аппаратами «Мир».",
-        versions: [
-            "России",
-            "США",
-            "Японии",
-            "Финляндии"
-        ]
-    },
-    {
-        question: "Как называется нефть, добываемая в Арктике?",
-        answer: "Сорт нефти, добываемой компанией «Газпром нефть» на Приразломном месторождении в Печорском море, получил название ARCO (Arctic Oil). Такая нефть хорошо подходит для производства уникальных химических продуктов, используемых в дорожном строительстве, шинном производстве, в космической и фармацевтической промышленностях.",
-        versions: [
-            "ARCO",
-            "ARCTICO",
-            "Северная кровь",
-            "Не имеет особого названия"
-        ]
-    }
-];
+var questions = [];
 
 var results = [
     'Ваши знания об Арктике оставляют желать лучшего, но это поправимо. Следите за обновлениями проекта «Полюс притяжения» – и вскоре вы сможете открыть для себя много нового!',
@@ -10703,6 +10559,14 @@ var results = [
     'Судя по всему, вы весьма начитаны и хорошо знакомы с темой. И хотя в настоящую арктическую экспедицию ехать вам пока рановато, вас вполне можно считать полярником-любителем. Следите за обновлениями проекта «Полюс притяжения» и продолжайте расширять свои познания!',
     'Поздравляем! Вы показали отличные знания об Арктике и можете считаться настоящим полярником. Следите за обновлениями проекта «Полюс притяжения» и продолжайте расширять свои познания!',
     'Великолепно! Ваши знания об Арктике настолько обширны и глубоки, что Вас можно назвать опытным арктическим исследователем. Следите за обновлениями проекта «Полюс притяжения»!'
+];
+
+var results_short = [
+    'Ваши знания об Арктике оставляют желать лучшего, но это поправимо.',
+    'Вы неплохо разбираетесь в предмете, но тема Арктики поистине неисчерпаема.',
+    'Судя по всему, вы весьма начитаны и хорошо знакомы с темой.',
+    'Поздравляем! Вы показали отличные знания об Арктике и можете считаться настоящим полярником.',
+    'Великолепно! Ваши знания об Арктике настолько обширны и глубоки, что Вас можно назвать опытным арктическим исследователем.'
 ];
 
 var resultIntervals = [4, 7, 10, 13];
@@ -10791,10 +10655,75 @@ debug.addMessage('Hello debug');
 
 /*! Social Likes v3.0.14 by Artem Sapegin - http://sapegin.github.com/social-likes - Licensed MIT */
 !function(a){"function"==typeof define&&define.amd?define(["jquery"],a):a(jQuery)}(function(a,b){"use strict";function c(a,b){this.container=a,this.options=b,this.init()}function d(b,c){this.widget=b,this.options=a.extend({},c),this.detectService(),this.service&&this.init()}function e(a){function b(a,b){return b.toUpper()}var c={},d=a.data();for(var e in d){var f=d[e];"yes"===f?f=!0:"no"===f&&(f=!1),c[e.replace(/-(\w)/g,b)]=f}return c}function f(a,b){return g(a,b,encodeURIComponent)}function g(a,b,c){return a.replace(/\{([^\}]+)\}/g,function(a,d){return d in b?c?c(b[d]):b[d]:a})}function h(a,b){var c=l+a;return c+" "+c+"_"+b}function i(b,c){function d(g){"keydown"===g.type&&27!==g.which||a(g.target).closest(b).length||(b.removeClass(m),e.off(f,d),a.isFunction(c)&&c())}var e=a(document),f="click touchstart keydown";e.on(f,d)}function j(a){var b=10;if(document.documentElement.getBoundingClientRect){var c=parseInt(a.css("left"),10),d=parseInt(a.css("top"),10),e=a[0].getBoundingClientRect();e.left<b?a.css("left",b-e.left+c):e.right>window.innerWidth-b&&a.css("left",window.innerWidth-e.right-b+c),e.top<b?a.css("top",b-e.top+d):e.bottom>window.innerHeight-b&&a.css("top",window.innerHeight-e.bottom-b+d)}a.addClass(m)}var k="social-likes",l=k+"__",m=k+"_opened",n="https:"===location.protocol?"https:":"http:",o="https:"===n,p={facebook:{counterUrl:"https://graph.facebook.com/fql?q=SELECT+total_count+FROM+link_stat+WHERE+url%3D%22{url}%22&callback=?",convertNumber:function(a){return a.data[0].total_count},popupUrl:"https://www.facebook.com/sharer/sharer.php?u={url}",popupWidth:600,popupHeight:500},twitter:{counterUrl:"https://cdn.api.twitter.com/1/urls/count.json?url={url}&callback=?",convertNumber:function(a){return a.count},popupUrl:"https://twitter.com/intent/tweet?url={url}&text={title}",popupWidth:600,popupHeight:450,click:function(){return/[\.\?:\-–—]\s*$/.test(this.options.title)||(this.options.title+=":"),!0}},mailru:{counterUrl:n+"//connect.mail.ru/share_count?url_list={url}&callback=1&func=?",convertNumber:function(a){for(var b in a)if(a.hasOwnProperty(b))return a[b].shares},popupUrl:n+"//connect.mail.ru/share?share_url={url}&title={title}",popupWidth:550,popupHeight:360},vkontakte:{counterUrl:"https://vk.com/share.php?act=count&url={url}&index={index}",counter:function(b,c){var d=p.vkontakte;d._||(d._=[],window.VK||(window.VK={}),window.VK.Share={count:function(a,b){d._[a].resolve(b)}});var e=d._.length;d._.push(c),a.getScript(f(b,{index:e})).fail(c.reject)},popupUrl:n+"//vk.com/share.php?url={url}&title={title}",popupWidth:550,popupHeight:330},odnoklassniki:{counterUrl:o?b:"http://connect.ok.ru/dk?st.cmd=extLike&ref={url}&uid={index}",counter:function(b,c){var d=p.odnoklassniki;d._||(d._=[],window.ODKL||(window.ODKL={}),window.ODKL.updateCount=function(a,b){d._[a].resolve(b)});var e=d._.length;d._.push(c),a.getScript(f(b,{index:e})).fail(c.reject)},popupUrl:"http://connect.ok.ru/dk?st.cmd=WidgetSharePreview&service=odnoklassniki&st.shareUrl={url}",popupWidth:550,popupHeight:360},plusone:{counterUrl:o?b:"http://share.yandex.ru/gpp.xml?url={url}",counter:function(b,c){var d=p.plusone;return d._?void c.reject():(window.services||(window.services={}),window.services.gplus={cb:function(a){"string"==typeof a&&(a=a.replace(/\D/g,"")),d._.resolve(parseInt(a,10))}},d._=c,void a.getScript(f(b)).fail(c.reject))},popupUrl:"https://plus.google.com/share?url={url}",popupWidth:700,popupHeight:500},pinterest:{counterUrl:n+"//api.pinterest.com/v1/urls/count.json?url={url}&callback=?",convertNumber:function(a){return a.count},popupUrl:n+"//pinterest.com/pin/create/button/?url={url}&description={title}",popupWidth:630,popupHeight:270}},q={promises:{},fetch:function(b,c,d){q.promises[b]||(q.promises[b]={});var e=q.promises[b];if(!d.forceUpdate&&e[c])return e[c];var g=a.extend({},p[b],d),h=a.Deferred(),i=g.counterUrl&&f(g.counterUrl,{url:c});return i&&a.isFunction(g.counter)?g.counter(i,h):g.counterUrl?a.getJSON(i).done(function(b){try{var c=b;a.isFunction(g.convertNumber)&&(c=g.convertNumber(b)),h.resolve(c)}catch(d){h.reject()}}).fail(h.reject):h.reject(),e[c]=h.promise(),e[c]}};a.fn.socialLikes=function(b){return this.each(function(){var d=a(this),f=d.data(k);f?a.isPlainObject(b)&&f.update(b):(f=new c(d,a.extend({},a.fn.socialLikes.defaults,b,e(d))),d.data(k,f))})},a.fn.socialLikes.defaults={url:window.location.href.replace(window.location.hash,""),title:document.title,counters:!0,zeroes:!1,wait:500,timeout:1e4,popupCheckInterval:500,singleTitle:"Share"},c.prototype={init:function(){this.container.addClass(k),this.single=this.container.hasClass(k+"_single"),this.initUserButtons(),this.countersLeft=0,this.number=0,this.container.on("counter."+k,a.proxy(this.updateCounter,this));var b=this.container.children();this.makeSingleButton(),this.buttons=[],b.each(a.proxy(function(b,c){var e=new d(a(c),this.options);this.buttons.push(e),e.options.counterUrl&&this.countersLeft++},this)),this.options.counters?(this.timer=setTimeout(a.proxy(this.appear,this),this.options.wait),this.timeout=setTimeout(a.proxy(this.ready,this,!0),this.options.timeout)):this.appear()},initUserButtons:function(){!this.userButtonInited&&window.socialLikesButtons&&a.extend(!0,p,socialLikesButtons),this.userButtonInited=!0},makeSingleButton:function(){if(this.single){var b=this.container;b.addClass(k+"_vertical"),b.wrap(a("<div>",{"class":k+"_single-w"})),b.wrapInner(a("<div>",{"class":k+"__single-container"}));var c=b.parent(),d=a("<div>",{"class":h("widget","single")}),e=a(g('<div class="{buttonCls}"><span class="{iconCls}"></span>{title}</div>',{buttonCls:h("button","single"),iconCls:h("icon","single"),title:this.options.singleTitle}));d.append(e),c.append(d),d.on("click",function(){var a=k+"__widget_active";return d.toggleClass(a),d.hasClass(a)?(b.css({left:-(b.width()-d.width())/2,top:-b.height()}),j(b),i(b,function(){d.removeClass(a)})):b.removeClass(m),!1}),this.widget=d}},update:function(b){if(b.forceUpdate||b.url!==this.options.url){this.number=0,this.countersLeft=this.buttons.length,this.widget&&this.widget.find("."+k+"__counter").remove(),a.extend(this.options,b);for(var c=0;c<this.buttons.length;c++)this.buttons[c].update(b)}},updateCounter:function(a,b,c){c&&(this.number+=c,this.single&&this.getCounterElem().text(this.number)),this.countersLeft--,0===this.countersLeft&&(this.appear(),this.ready())},appear:function(){this.container.addClass(k+"_visible")},ready:function(a){this.timeout&&clearTimeout(this.timeout),this.container.addClass(k+"_ready"),a||this.container.trigger("ready."+k,this.number)},getCounterElem:function(){var b=this.widget.find("."+l+"counter_single");return b.length||(b=a("<span>",{"class":h("counter","single")}),this.widget.append(b)),b}},d.prototype={init:function(){this.detectParams(),this.initHtml(),setTimeout(a.proxy(this.initCounter,this),0)},update:function(b){a.extend(this.options,{forceUpdate:!1},b),this.widget.find("."+k+"__counter").remove(),this.initCounter()},detectService:function(){var b=this.widget.data("service");if(!b){for(var c=this.widget[0],d=c.classList||c.className.split(" "),e=0;e<d.length;e++){var f=d[e];if(p[f]){b=f;break}}if(!b)return}this.service=b,a.extend(this.options,p[b])},detectParams:function(){var a=this.widget.data();if(a.counter){var b=parseInt(a.counter,10);isNaN(b)?this.options.counterUrl=a.counter:this.options.counterNumber=b}a.title&&(this.options.title=a.title),a.url&&(this.options.url=a.url)},initHtml:function(){var b=this.options,c=this.widget,d=c.find("a");d.length&&this.cloneDataAttrs(d,c);var e=a("<span>",{"class":this.getElementClassNames("button"),text:c.text()});if(b.clickUrl){var g=f(b.clickUrl,{url:b.url,title:b.title}),h=a("<a>",{href:g});this.cloneDataAttrs(c,h),c.replaceWith(h),this.widget=c=h}else c.on("click",a.proxy(this.click,this));c.removeClass(this.service),c.addClass(this.getElementClassNames("widget")),e.prepend(a("<span>",{"class":this.getElementClassNames("icon")})),c.empty().append(e),this.button=e},initCounter:function(){if(this.options.counters)if(this.options.counterNumber)this.updateCounter(this.options.counterNumber);else{var b={counterUrl:this.options.counterUrl,forceUpdate:this.options.forceUpdate};q.fetch(this.service,this.options.url,b).always(a.proxy(this.updateCounter,this))}},cloneDataAttrs:function(a,b){var c=a.data();for(var d in c)c.hasOwnProperty(d)&&b.data(d,c[d])},getElementClassNames:function(a){return h(a,this.service)},updateCounter:function(b){b=parseInt(b,10)||0;var c={"class":this.getElementClassNames("counter"),text:b};b||this.options.zeroes||(c["class"]+=" "+k+"__counter_empty",c.text="");var d=a("<span>",c);this.widget.append(d),this.widget.trigger("counter."+k,[this.service,b])},click:function(b){var c=this.options,d=!0;if(a.isFunction(c.click)&&(d=c.click.call(this,b)),d){var e=f(c.popupUrl,{url:c.url,title:c.title});e=this.addAdditionalParamsToUrl(e),this.openPopup(e,{width:c.popupWidth,height:c.popupHeight})}return!1},addAdditionalParamsToUrl:function(b){var c=a.param(a.extend(this.widget.data(),this.options.data));if(a.isEmptyObject(c))return b;var d=-1===b.indexOf("?")?"?":"&";return b+d+c},openPopup:function(b,c){var d=Math.round(screen.width/2-c.width/2),e=0;screen.height>c.height&&(e=Math.round(screen.height/3-c.height/2));var f=window.open(b,"sl_"+this.service,"left="+d+",top="+e+",width="+c.width+",height="+c.height+",personalbar=0,toolbar=0,scrollbars=1,resizable=1");if(f){f.focus(),this.widget.trigger("popup_opened."+k,[this.service,f]);var g=setInterval(a.proxy(function(){f.closed&&(clearInterval(g),this.widget.trigger("popup_closed."+k,this.service))},this),this.options.popupCheckInterval)}else location.href=b}},a(function(){a("."+k).socialLikes()})});
+/**
+ * Created by kuteynikov on 27.03.2015.
+ */
+
+initSocialsResults = function(settings) {
+
+    var url = 'http://arctic.ria.ru/victorina/share';
+
+    var fb1 = settings.desc
+    _.each(settings, function(val, key) {
+        settings[key] = encodeURIComponent(val);
+    });
+
+    var vkUrlR = 'http://vkontakte.ru/share.php' +
+    '?title=' + settings.title +
+    '&description=' + settings.desc +
+    '&url=' + settings.url +
+    '&image=' + settings.img +
+    '&noparse=1';
+
+    var fbUrlR = 'http://www.facebook.com/sharer.php' +
+    '?s=100&p[title]=' + settings.title +
+    '&p[summary]=' + settings.desc +
+    '&p[url]=' + settings.url +
+    '&p[images][0]=' + settings.img +
+    '&t=' + settings.title +
+    '&e=' + settings.desc;
+
+    var tUrlR = 'https://twitter.com/intent/tweet' +
+    '?status=' + (settings.sDesc || settings.desc);
+
+    var vk = document.getElementById("vkr"),
+        fb = document.getElementById("fbr"),
+        t = document.getElementById("tr");
+
+    if(vk) {
+        vk.addEventListener("click", function() {
+            window.open(vkUrlR, 'sharer', 'toolbar=0,status=0,width=626,height=436');
+        });
+    }
+
+    if(fb) {
+        fb.addEventListener("click", function() {
+            var indx = 1;
+            if(fb1 == results[0])       indx = 1
+            else if(fb1 == results[1])  indx = 2
+            else if(fb1 == results[2])  indx = 3
+            else if(fb1 == results[3])  indx = 4
+            else if(fb1 == results[4])  indx = 5
+            window.open('http://www.facebook.com/sharer.php?u='+url+''+indx+'.html', 'sharer', 'toolbar=0,status=0,width=548,height=325,resizable=yes');
+        });
+    }
+    if(t) {
+        t.addEventListener("click", function() {
+            window.open(tUrlR, 'sharer', 'toolbar=0,status=0,width=626,height=436');
+        });
+    }
+};
+
+
+// var dataURL = 'http://ria.ru/kaleidoscope/20150406/1054344118-script.html?xml=1';
+var dataURL = 'data/data.xml';
+var answerURL = 'http://ria.ru/services/victorins/add-answer';
+
+
 var cQ = 0; // currentQuestion
 var tQ = questions.length;  // totalQuestions
+var rQ = 0; // количество правильных ответов
 var userAnswers = [];   //
-var rightAnswers = [];  //
 
 // selectors
 var counter = $('.question-counter');
@@ -10815,9 +10744,29 @@ var nextDecr = $(".next_descr");
 var imgDecr = $("img.img-decr");
 var currSubQ = 0;
 var resultQ = null;
+var resultQIndex = null;
 var soundClick = $('audio#sound_click');
 var soundBg = $('audio#sound_bg');
 var sound = true;
+
+var soc_tw = $('.social_result_tw');
+var soc_fb = $('.social_result_fb');
+var soc_vk = $('.social_result_vk');
+var socObj = {};
+
+//////////////
+var qst;
+var qst_question;
+var qst_versions;
+var right_version;
+var qst_answer;
+
+var victorinaId;
+var articleId;
+var vicQuestionId;
+var vicAnswerId;
+
+//////////////
 
 // var animationBegin = document.getElementById("animation-begin");
 // var animationEnd   = document.getElementById("animation-end");
@@ -10827,51 +10776,152 @@ var sound = true;
 $(window).on('resize', function(){
    resize();
    resizeVideo();
+
+  if ($(window).width() > 1070){
+    if ($(window).height() < 790){
+      $(".page").css("margin-top", "-220px");
+    }else{
+      $(".page").css("margin-top", "-280px");
+    }
+  }else{
+   $(".page").css("margin-top", "-333px");
+  }
+
 })
 
 $(window).load(function(){
   resizeVideo();
+
+  var vid_bg = document.getElementById("video_bg");
+  vid_bg.play();
+  //vid_bg.onplaying = function() {
+  //  console.log("The video is now playing");
+  //};
+
+  vid_bg.addEventListener("timeupdate", function () {
+     // console.log(vid.currentTime );
+     if ( vid_bg.currentTime > 2.765 ){
+      vid_bg.currentTime = 0.1;
+      vid_bg.play();
+      //console.log( "replay" );
+     }
+   }, false);
+
+  $.ajax({
+    type: "GET",
+    url: dataURL,
+    dataType: "xml",
+    success: xmlParser
+  });
+
 });
 
 function resizeVideo(){
+  // $(".head_logo_text1").text( "8w: " + $(window).width() + " vs " + $(window).height() + " v: " + $(".covervid-video").width() + " : "+ $(".covervid-video").height() );
+  // var winW = $(window).width();
+  // var winH = $(window).height();
+  // var vidW = $(".covervid-video").width();
+  // var vidH = $(".covervid-video").height();
+
+  // var ratio = 1366 / 768;
+  // $(".covervid-video").css({height: winH , width: winH * ratio});
+   // if( vidH > winH ){
+   //   $(".covervid-video").css({height: winH , width: winH * ratio});
+   //   console.log("H");
+   // }
+   // if( vidW < winW ){
+   //   $(".covervid-video").css({height: winH * ratio , width: winW });
+   //   console.log("W");
+   // }
     //var imgW = 1366;
     //var imgH = 768;
-    var winW = $(window).width();
-    var winH = $(window).height();
 
-    if( $(".covervid-video").width() < winW ){
-      $(".covervid-video").css({width: winW, height: "auto"})
-    }
-    if( $(".covervid-video-ts").width() < winW ){
-      $(".covervid-video-ts").css({width: winW, height: "auto"})
-    }
+    // if( $(".covervid-video").width() < winW ){
+    //   $(".covervid-video").css({width: winW, height: "auto"})
+    // }
+    // if( $(".covervid-video-ts").width() < winW ){
+    //   $(".covervid-video-ts").css({width: winW, height: "auto"})
+    // }
 
-    if($(".covervid-video").height() < winH){
-      $(".covervid-video").css({height: "100%", width: "auto"})
-    }
-    if($(".covervid-video-ts").height() < winH){
-      $(".covervid-video-ts").css({height: "100%", width: "auto"})
-    }
-
-    if (winH < 790){
-      $(".page").css("margin-top", "-225px");
-    }else{
-      $(".page").css("margin-top", "-280px");
-    }
-   // console.log(2222);  
+    // if($(".covervid-video").height() < winH){
+    //   $(".covervid-video").css({height: "100%", width: "auto"})
+    // }
+    // if($(".covervid-video-ts").height() < winH){
+    //   $(".covervid-video-ts").css({height: "100%", width: "auto"})
+    // }
 
 }
+
 
 function resize(){
 
       if ( $(window).width() > 1160 ){
-        nextbtnQ.css({"top": ( $(".questions").height() - 264) + 116});
-        nextbtnA.css({"top":  (answer.height() / 2) - 20 } );
+        // nextbtnQ.css({"top": ( $(".questions").height() - 264) + 116});
+        nextbtnQ.css({"top": ( ($(".questions").height() +20 ) /2 ) -35});
+        nextbtnA.css({"top":  (answer.height() + 30 ) / 2 - 35 } );
       }else{
-        nextbtnQ.css({"top":  $(".questions").height() + 60 });
-        nextbtnA.css({"top":  answer.height() + 50 } );
+        nextbtnQ.css({"top":  $(".questions").height() + 5 });
+        nextbtnA.css({"top":  answer.height() - 28 } );
       }
       // console.log( "pos: "+$(".questions").position().top + " offset: " + $(".questions").offset().top  + " height: " + $(".questions").height());
+}
+
+
+///////////////
+
+var BrowserDetect = {
+        init: function () {
+            this.browser = this.searchString(this.dataBrowser) || "Other";
+            this.version = this.searchVersion(navigator.userAgent) || this.searchVersion(navigator.appVersion) || "Unknown";
+        },
+        searchString: function (data) {
+            for (var i = 0; i < data.length; i++) {
+                var dataString = data[i].string;
+                this.versionSearchString = data[i].subString;
+
+                if (dataString.indexOf(data[i].subString) !== -1) {
+                    return data[i].identity;
+                }
+            }
+        },
+        searchVersion: function (dataString) {
+            var index = dataString.indexOf(this.versionSearchString);
+            if (index === -1) {
+                return;
+            }
+
+            var rv = dataString.indexOf("rv:");
+            if (this.versionSearchString === "Trident" && rv !== -1) {
+                return parseFloat(dataString.substring(rv + 3));
+            } else {
+                return parseFloat(dataString.substring(index + this.versionSearchString.length + 1));
+            }
+        },
+
+        dataBrowser: [
+            {string: navigator.userAgent, subString: "Chrome", identity: "Chrome"},
+            {string: navigator.userAgent, subString: "MSIE", identity: "Explorer"},
+            {string: navigator.userAgent, subString: "Trident", identity: "Explorer"},
+            {string: navigator.userAgent, subString: "Firefox", identity: "Firefox"},
+            {string: navigator.userAgent, subString: "Safari", identity: "Safari"},
+            {string: navigator.userAgent, subString: "Opera", identity: "Opera"}
+        ]
+
+};
+    
+
+///////////////
+function xmlParser(xml) {
+  questions = [];
+
+  victorinaId = $(xml).find('victorina').attr('id');
+  articleId = $(xml).find('article').attr('id')
+
+  $(xml).find("vic_question").each(function () {
+    questions.push(this)
+  });
+  tQ = questions.length;
+  start();
 }
 
 function start(){
@@ -10881,32 +10931,47 @@ function start(){
 
 function nextQuestion(){
   answers.removeClass('checked')
-      .css({opacity: 1})
-      .find('.checkbox_img').stop().css({opacity: 0});
+        .css({opacity: 1, backgroundColor: "transparent"})
+        .find('.checkbox_img').stop().css({opacity: 0});
   answer.addClass('close');
-  // nextbtn.addClass('close');
-  // nextbtn.find('span').text('ОТВЕТИТЬ')
-  // answers.css({backgroundColor: "rgba(0, 59, 118,0.8)"})
-  answers.css({backgroundColor: "transparent"})
-  $(".questions").css({"opacity": 1});
+  $(".questions").css({"opacity": 1, display: "block"});
   cQ++;
-// console.log(cQ);
+
+  qst = $(questions[cQ-1]);
+  qst_question = qst.find('vic_question > text').text();
+  qst_question = qst_question.replace(/<[^>]+>/g,'');
+  qst_versions = [];
+  $.each(qst.find('vic_answer'), function(i, e){
+    var obj = {
+      version: $(e).find('text').text(),
+      id: $(e).attr('id'),
+      isright: $(e).find('is-right').text()
+    }
+    qst_versions.push(obj)
+    if($(e).find('is-right').text() == '1'){
+      right_version = obj;
+    }
+  })
+  qst_answer = qst.find('vic_question > answer').text();
+  vicQuestionId = qst.attr('id');
+
   if(cQ <= tQ){
     counter
         .stop()
         .text(cQ + '/' + tQ)
+    question
+        .stop()
+        .css({opacity: 0})
+        .html(qst_question)
+        .animate({opacity: 1}, 200);
     questionImg
         .stop()
         .css({opacity: 0})
         .attr("src", "img/questions/" + cQ + ".jpg" )
         .animate({opacity: 1}, 1500);
-    question
-        .stop()
-        .css({opacity: 0})
-        .text(questions[cQ-1].question)
-        .animate({opacity: 1}, 200);
 
-    if(!questions[cQ-1].subanswer){
+    // if(!questions[cQ-1].subanswer){
+    if(cQ != 7){
       textdescr.addClass("close");
     }else{
       textdescr.removeClass("close");
@@ -10915,58 +10980,61 @@ function nextQuestion(){
     }
 
     var newShuffle = shuffle([0,1,2,3]);
-    $.each(newShuffle, function(i, e){
-      if(e==0)
-        rightAnswers.push(i);
-    })
-
     $.each(answers, function(i, e){
-      $(e).find('p').text(questions[cQ-1].versions[newShuffle[i]]);
+      $(e).data('obj', qst_versions[newShuffle[i]])
+      $(e).find('p').text(qst_versions[newShuffle[i]].version);
     })
   }else{
-    
     calculateResult();
-
-    // $('.page').hide();
   }
 }
 
-
-function fff(n){
-  $(".text-result").html( results[n - 1] );
-    $(".img-result").attr("src", "img/results/" + n + ".svg")
-}
-function calculateResult(){
-  var count = 0;
-  nextbtnA.find('span').text('СЛЕДУЮЩИЙ ВОПРОС')
-  $.each(userAnswers, function(i, e){
-    if(userAnswers[i] == rightAnswers[i]){
-      count++;
+function sendResults(){
+  $.ajax({
+    type: "GET",
+    url: answerURL,
+    data: 'victorina_id=' + victorinaId + '&article_id=' + articleId + '&vic_question_id=' + vicQuestionId + '&vic_answer_id=' + vicAnswerId,
+    success: function(){
+      console.log('send answer to server')
     }
   });
-  // console.log(count);
-  if(count <= resultIntervals[0]){
+}
+
+function calculateResult(){
+  nextbtnA.find('span').text('СЛЕДУЮЩИЙ ВОПРОС')
+  if(rQ <= resultIntervals[0]){
    fff(1)
-  }else if(count <= resultIntervals[1]){
+  }else if(rQ <= resultIntervals[1]){
   fff(2)
-  }else if(count <= resultIntervals[2]){
+  }else if(rQ <= resultIntervals[2]){
     fff(3)
-  }else if(count <= resultIntervals[3]){
+  }else if(rQ <= resultIntervals[3]){
    fff(4)
   }else{
    fff(5)
   }
 
-   $(".result-title").text("Ваш результат ― " + count + " из 14");
+  function fff(n){
+    $(".text-result").html( results[n - 1] );
+    $(".img-result").attr("src", "img/results/" + n + ".svg");
 
+    socObj = {
+      title:"Неизвестная Арктика",
+      desc: results[n-1],
+      sDesc: results_short[n-1],
+      url:"http://arctic.ria.ru/victorina",
+      sUrl:"http://goo.gl/RSQSUG",
+      img:"http://arctic.ria.ru/victorina/img/sharing_result"+n+".jpg"
+    }
+  }
 
+  $(".result-title").text("Ваш результат ― " + rQ + " из 14");
   counter.addClass("close");
-  // question.addClass("close");
   question.css("display", "none");
   answer.addClass("close");
-//  nextbtn.css("opacity", 0);
   $(".questions").addClass("close");
   result.removeClass("close");
+  $(".questions").css("display", "none");
 }
 
 function init(){
@@ -10993,20 +11061,18 @@ function init(){
           $(this).addClass('checked');
           $(this).find('.checkbox_img').stop().animate({opacity: 1}, 300);
           nextbtnQ.animate({opacity: 1}, 200).css({display: "table"});
-          resultQ = answers.index(this);
-          // console.log(" 1: " + resultQ);
+          resultQ = $(this).data('obj');
+          vicAnswerId = $(this).data('obj').id
+          resultQIndex = answers.index(this);
         }
-
-        //showAnswer()
-        // nextbtn.removeClass('close').stop().css({opacity: 1})
-        // nextbtn.find('span').text('СЛЕДУЮЩИЙ ВОПРОС')
-        // answer.removeClass('close').stop().css({opacity: 1})
       })
 
   nextbtnQ.on('click', function(){
-    // console.log(" 2: " + resultQ);
-    userAnswers.push(resultQ)
+    userAnswers.push(resultQIndex)
     showAnswer();
+
+    sendResults();
+
     nextbtnQ.css({opacity: 0, display: "none"});
     nextbtnA.animate({opacity: 1}, 300).css({display: "table"});
   });
@@ -11030,23 +11096,26 @@ function init(){
   });
 
   again.on("click", function(){
-    result.addClass("close");
-
     cQ = 0; // currentQuestion
+    rQ = 0;
+    userAnswers = [];
 
-    userAnswers = [];   //
-    rightAnswers = [];  //
-
-
+    result.addClass("close");
     counter.removeClass("close");
-    // question.removeClass("close");
     question.css("display", "block");
     $(".questions").removeClass("close");
-    // nextbtn.find('p').text('Следующий вопрос')
-
     nextQuestion();
   });
 
+  soc_tw.on("click", function(){
+    initSocialsResults(socObj);
+  })
+  soc_fb.on("click", function(){
+    initSocialsResults(socObj);
+  })
+  soc_vk.on("click", function(){
+    initSocialsResults(socObj);
+  })
 }
 
 function changeImage(n){
@@ -11066,19 +11135,17 @@ function changeImage(n){
 function showAnswer(){
   // nextbtn.find('span').text('СЛЕДУЮЩИЙ ВОПРОС')
   if(cQ == tQ){
-    nextbtnA.find('span').text('ПОСМОТРЕТЬ РЕЗУЛЬТАТ')
+    nextbtnA.find('span').text('ПОСМОТРЕТЬ РЕЗУЛЬТАТ');
   }
   answer.removeClass('close').stop().css({opacity: 0})
-  //questionImg.stop().animate({opacity: 0}, 500);
 
-  // nextbtn.removeClass('close').stop().css({opacity: 0})
+  answertitle.html(right_version.version)
+  answertext.html($(qst_answer).text())
 
-  answertitle.html(questions[cQ-1].versions[0])
-  answertext.html(questions[cQ-1].answer)
-
-  if(userAnswers[cQ-1] == rightAnswers[cQ-1]){
+  if(resultQ.isright == '1'){
     answers.eq(userAnswers[userAnswers.length-1]).css({backgroundColor: "rgba(0,79,43,0.8)"})
     $("p.status").text("Ваш ответ верен");
+    rQ++;
   }else{
     answers.eq(userAnswers[userAnswers.length-1]).css({backgroundColor: "rgba(153,0,0,0.8)"})
     $("p.status").text("увы, Ваш ответ неверен");
@@ -11087,19 +11154,10 @@ function showAnswer(){
   flash.animate({opacity: 0.5}, 200, function(){
     flash.animate({opacity: 0}, 100, function(){
       answer.animate({opacity: 1}, 400);
-      // nextbtn.animate({opacity: 1}, 400);
       answers.animate({opacity: 0}, 400);
-      $(".questions").css({"opacity": 0});
-      // if ( $(window).width() > 1160 ){
-      //   nextbtn.css({"top": ( ( answer.height() + 30 ) / 2) - 35 });
-      // }else{
-      //   nextbtn.css({"top": answer.height() + 60 });
-      // }
-
-
+      $(".questions").css({"opacity": 0, display: "none"});
     })
   })
-
   resize();
 }
 
@@ -11116,6 +11174,7 @@ function closeDown(btn, block){
 
 function soundOff(){
   soundBg.get(0).pause();
+  //soundClick.get(0).volume=0;
   $("g.sound_off").css("visibility", "visible");
   $("g.sound_on").css("visibility", "hidden");
 }
@@ -11124,8 +11183,6 @@ function soundOn(){
   $("g.sound_off").css("visibility", "hidden");
   $("g.sound_on").css("visibility", "visible");
 }
-
-start()
 
 closeDown(".btn-close", ".ftr-mail")
 closeDown(".ftr_mob_btn", ".ftr_mob")
@@ -11179,12 +11236,19 @@ $(".ftr").click(function(){
 });
 
 $(".ftr-vid").click(function(){
-  $(".ftr").css({background: "rgba(0,0,0,0.5)"});
+  $(".ftr").css({
+    "background": "rgba(0,0,0,0.5)",
+    "background-size": "cover",
+    "background-repeat": "no-repeat",
+    "background-attachment": "local",
+    "background-position": "center",
+    "background-image": "url(../img/footer_bg.png)"
+    });
   $(".vic").css({position: "absolute"});
   $("video.covervid-video-ts").get(0).pause();
   // if ( $("g.sound_on").css("visibility") == "hidden" ){ soundOn(); }
   if (sound == true) { soundOn(); }
-  console.log( $("g.sound_on").css("visibility") );
+  //console.log( $("g.sound_on").css("visibility") );
   $(".vic").animate({
     top: "0"
   }, 700);
@@ -11198,7 +11262,7 @@ $(".cover_mob_button").click(function(){
     opacity: 0
   }, 700, function(){
     $(".cover_mob").css("display", "none");
-    $(".page").css("display", "block");
+    $(".page").css("visibility", "visible");
     // $(".page").animate({"margin-top": "0"}, 900);
   });
 
@@ -11224,8 +11288,16 @@ $(document).ready(function(){
   setTimeout(function() {
     $(".cover_text_1").fadeTo( 100, 0, function(){
       $(".cover_text_1").css("display", "none");
-      $('.cover_text_2').fadeTo( 1900, 1 );
-      $('.cover_button').fadeTo( 2300, 1 );
+      $('.cover_text_2').fadeIn( 1900 , function(){
+        console.log(123);
+        // $('.cover_preload').css( {"display": "block"} );
+        //$('.cover_preload').fadeIn( 2500 , function(){
+        $('.cover_preload').fadeIn( 2500 , function(){
+        //   console.log(123);
+        //   // $('.cover_button_preload').fadeTo( 500, 1 );
+          $('.cover_button_preload').fadeIn( 500 );
+        });
+      });
       // $("#svg_bg").attr("d", $("#svg_bg").attr("dd"));
       // $("#svg_text").css("opacity", 0);
       $("#svg_bg").animate({"opacity": 0}, 1500);
@@ -11279,10 +11351,35 @@ $(document).ready(function(){
       sound = true;
     }
   });
-  nextbtnQ.click( function(){ soundClick.get(0).play() });
+  nextbtnQ.click( function(){ soundClick.get(0).play(); console.log(soundClick.get(0).volume); });
   nextbtnA.click( function(){ soundClick.get(0).play() });
 
+
   /// Debug ////
+
+  BrowserDetect.init();
+  var enevtVideo = 'suspend';
+  if (BrowserDetect.browser == "Explorer"){
+    enevtVideo = 'canplaythrough';
+    console.log(BrowserDetect.browser);
+  }
+  if (BrowserDetect.browser == "Safari"){
+    enevtVideo = 'canplaythrough';
+    console.log(BrowserDetect.browser);
+  }
+
+    var vid2 = document.getElementById("video_bg");
+    vid2.addEventListener(enevtVideo, function(e) {
+      $('.cover_button_preload').fadeTo( 100, '0' , function(){
+        console.log("Ready1");
+        $('.cover_button').fadeIn( 800 );
+        // $('.cover_button').fadeIn( 800 );
+
+      });
+      console.log("Ready2");
+    }, false);
+
+
   var url = $(location).attr('hash');
   if (url == "#cover"){ $(".cover").css({display: "none"}); }
   if (url == "#vic"){ $(".cover").css({display: "none"}); $(".vic").css({display: "none"}); $("video.covervid-video-ts").get(0).play(); }
@@ -11292,360 +11389,3 @@ $(document).ready(function(){
 
 resize();
 resizeVideo();
-// Generated by CoffeeScript 1.7.1
-(function() {
-  var XMLHttpFactories, ajax, applyStyleTest, browserSupportsUnitsNatively, clearStyleTests, createXMLHTTPObject, getViewportSize, initLayoutEngine, testElementStyle, testVHSupport, testVMinSupport, testVWSupport;
-
-  XMLHttpFactories = [
-    function() {
-      return new XMLHttpRequest();
-    }, function() {
-      return new ActiveXObject("Msxml2.XMLHTTP");
-    }, function() {
-      return new ActiveXObject("Msxml3.XMLHTTP");
-    }, function() {
-      return new ActiveXObject("Microsoft.XMLHTTP");
-    }
-  ];
-
-  createXMLHTTPObject = function() {
-    var e, i, xmlhttp;
-    xmlhttp = false;
-    i = 0;
-    while (i < XMLHttpFactories.length) {
-      try {
-        xmlhttp = XMLHttpFactories[i++]();
-      } catch (_error) {
-        e = _error;
-        continue;
-      }
-      break;
-    }
-    return xmlhttp;
-  };
-
-  ajax = function(url, onload) {
-    var e, xmlhttp;
-    xmlhttp = createXMLHTTPObject();
-    xmlhttp.onreadystatechange = function() {
-      if (xmlhttp.readyState !== 4) {
-        return;
-      }
-      if (!(xmlhttp.status === 200 || url.match(/^file:\/\/\//))) {
-        throw "Error!";
-      }
-      console.log("INFO: processing " + url);
-      onload(xmlhttp.responseText);
-    };
-    try {
-      xmlhttp.open("GET", url, true);
-      xmlhttp.send();
-    } catch (_error) {
-      e = _error;
-      console.log("ERROR: " + e.message + " (" + e.type + ") when accessing " + url);
-    }
-  };
-
-  getViewportSize = function() {
-    var x, y;
-    x = 0;
-    y = 0;
-    if (window.innerHeight) {
-      x = window.innerWidth;
-      y = window.innerHeight;
-    } else if (document.documentElement && document.documentElement.clientHeight) {
-      x = document.documentElement.clientWidth;
-      y = document.documentElement.clientHeight;
-    } else if (document.body) {
-      x = document.body.clientWidth;
-      y = document.body.clientHeight;
-    }
-    return {
-      width: x,
-      height: y
-    };
-  };
-
-  browserSupportsUnitsNatively = function() {
-    var body, head, style_block, test_element, test_results;
-    test_element = document.createElement('div');
-    test_element.id = "vminpolyTests";
-    body = document.getElementsByTagName('body')[0];
-    body.appendChild(test_element);
-    style_block = document.createElement('style');
-    head = document.getElementsByTagName('head')[0];
-    head.appendChild(style_block);
-    test_results = testVWSupport(test_element, style_block) && testVWSupport(test_element, style_block) && testVMinSupport(test_element, style_block);
-    body.removeChild(test_element);
-    head.removeChild(style_block);
-    return test_results;
-  };
-
-  testElementStyle = function(element) {
-    if (window.getComputedStyle) {
-      return getComputedStyle(element, null);
-    } else {
-      return element.currentStyle;
-    }
-  };
-
-  applyStyleTest = function(style_block, style) {
-    var new_style, test_style;
-    new_style = "#vminpolyTests { " + style + "; }";
-    if (style_block.styleSheet) {
-      return style_block.styleSheet.cssText = new_style;
-    } else {
-      test_style = document.createTextNode(new_style);
-      return style_block.appendChild(test_style);
-    }
-  };
-
-  clearStyleTests = function(style_block) {
-    if (style_block.styleSheet) {
-      return style_block.styleSheet.cssText = '';
-    } else {
-      return style_block.innerHTML = '';
-    }
-  };
-
-  testVHSupport = function(element, style_block) {
-    var comp_style, height;
-    applyStyleTest(style_block, 'height: 50vh');
-    height = parseInt(window.innerHeight / 2, 10);
-    comp_style = parseInt(testElementStyle(element).height, 10);
-    clearStyleTests(style_block);
-    return comp_style === height;
-  };
-
-  testVWSupport = function(element, style_block) {
-    var comp_style, width;
-    applyStyleTest(style_block, 'width: 50vw');
-    width = parseInt(window.innerWidth / 2, 10);
-    comp_style = parseInt(testElementStyle(element).width, 10);
-    clearStyleTests(style_block);
-    return comp_style === width;
-  };
-
-  testVMinSupport = function(element, style_block) {
-    var actual_vmin, comp_width, docElement, one_vh, one_vw;
-    applyStyleTest(style_block, 'width: 50vmin');
-    docElement = document.documentElement;
-    one_vw = docElement.clientWidth / 100;
-    one_vh = docElement.clientHeight / 100;
-    actual_vmin = parseInt(Math.min(one_vw, one_vh) * 50, 10);
-    comp_width = parseInt(testElementStyle(element).width, 10);
-    clearStyleTests(style_block);
-    return actual_vmin === comp_width;
-  };
-
-  initLayoutEngine = function() {
-    var analyzeStyleRule, analyzeStylesheet, head, i, innerSheetCount, links, onresize, outerSheetCount, sheets, styleElement, _i, _len;
-    analyzeStyleRule = function(rule) {
-      var declaration, declarations, hasDimension, token, _i, _j, _len, _len1, _ref, _ref1;
-      declarations = [];
-      _ref = rule.value;
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        declaration = _ref[_i];
-        hasDimension = false;
-        _ref1 = declaration.value;
-        for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
-          token = _ref1[_j];
-          if (token.tokenType === 'DIMENSION' && (token.unit === 'vmin' || token.unit === 'vh' || token.unit === 'vw')) {
-            hasDimension = true;
-          }
-        }
-        if (hasDimension) {
-          declarations.push(declaration);
-        }
-      }
-      rule.value = declarations;
-      return declarations;
-    };
-    analyzeStylesheet = function(sheet) {
-      var atRules, decs, rule, rules, _i, _len, _ref;
-      rules = [];
-      _ref = sheet.value;
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        rule = _ref[_i];
-        switch (rule.type) {
-          case 'STYLE-RULE':
-            decs = analyzeStyleRule(rule);
-            if (decs.length !== 0) {
-              rules.push(rule);
-            }
-            break;
-          case 'AT-RULE':
-            atRules = analyzeStylesheet(rule);
-            if (atRules.length !== 0) {
-              rules.push(rule);
-            }
-        }
-      }
-      sheet.value = rules;
-      return rules;
-    };
-    onresize = function() {
-      var css, dims, generateRuleCode, generateSheetCode, map, sheet, url, vpAspectRatio, vpDims;
-      vpDims = getViewportSize();
-      dims = {
-        vh: vpDims.height / 100,
-        vw: vpDims.width / 100
-      };
-      dims.vmin = Math.min(dims.vh, dims.vw);
-      vpAspectRatio = vpDims.width / vpDims.height;
-      map = function(a, f) {
-        var a1, e, _i, _len;
-        if (a.map != null) {
-          return a.map(f);
-        } else {
-          a1 = [];
-          for (_i = 0, _len = a.length; _i < _len; _i++) {
-            e = a[_i];
-            a1.push(f(e));
-          }
-          return a1;
-        }
-      };
-      generateRuleCode = function(rule) {
-        var declaration, declarations, ruleCss, token, _i, _j, _len, _len1, _ref, _ref1;
-        declarations = [];
-        ruleCss = (map(rule.selector, function(o) {
-          if (o.toSourceString != null) {
-            return o.toSourceString();
-          } else {
-            return '';
-          }
-        })).join('');
-        ruleCss += "{";
-        _ref = rule.value;
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          declaration = _ref[_i];
-          ruleCss += declaration.name;
-          ruleCss += ":";
-          _ref1 = declaration.value;
-          for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
-            token = _ref1[_j];
-            if (token.tokenType === 'DIMENSION' && (token.unit === 'vmin' || token.unit === 'vh' || token.unit === 'vw')) {
-              ruleCss += "" + (Math.floor(token.num * dims[token.unit])) + "px";
-            } else {
-              ruleCss += token.toSourceString();
-            }
-          }
-          ruleCss += ";";
-        }
-        ruleCss += "}\r";
-        return ruleCss;
-      };
-      generateSheetCode = function(sheet) {
-        var mar, nums, prelude, rule, sheetCss, source, t, t1, _i, _j, _k, _l, _len, _len1, _len2, _len3, _ref, _ref1, _ref2, _ref3;
-        sheetCss = '';
-        _ref = sheet.value;
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          rule = _ref[_i];
-          switch (rule.type) {
-            case 'STYLE-RULE':
-              sheetCss += generateRuleCode(rule);
-              break;
-            case 'AT-RULE':
-              if (rule.name === 'media') {
-                prelude = '';
-                mar = false;
-                nums = [];
-                _ref1 = rule.prelude;
-                for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
-                  t = _ref1[_j];
-                  if (t.name === '(') {
-                    prelude += '(';
-                    _ref2 = t.value;
-                    for (_k = 0, _len2 = _ref2.length; _k < _len2; _k++) {
-                      t1 = _ref2[_k];
-                      source = t1.toSourceString != null ? t1.toSourceString() : '';
-                      if (t1.tokenType === 'IDENT' && source === 'max-aspect-ratio') {
-                        mar = true;
-                      }
-                      if (t1.tokenType === 'NUMBER') {
-                        nums.push(parseInt(source));
-                      }
-                      prelude += source;
-                    }
-                    prelude += ')';
-                  } else {
-                    prelude += t.toSourceString();
-                  }
-                }
-                if (vpAspectRatio < nums[0] / nums[1]) {
-                  sheetCss += generateSheetCode(rule);
-                }
-              } else {
-                prelude = '';
-                _ref3 = rule.prelude;
-                for (_l = 0, _len3 = _ref3.length; _l < _len3; _l++) {
-                  t = _ref3[_l];
-                  if (t.name === '(') {
-                    prelude += '(';
-                    prelude += (map(t.value, function(o) {
-                      if (o.toSourceString != null) {
-                        return o.toSourceString();
-                      } else {
-                        return '';
-                      }
-                    })).join('');
-                    prelude += ')';
-                  } else {
-                    prelude += t.toSourceString();
-                  }
-                }
-                sheetCss += "@" + rule.name + " " + prelude + " {";
-                sheetCss += generateSheetCode(rule);
-                sheetCss += '}\n';
-              }
-          }
-        }
-        return sheetCss;
-      };
-      css = '';
-      for (url in sheets) {
-        sheet = sheets[url];
-        css += generateSheetCode(sheet);
-      }
-      if (styleElement.styleSheet != null) {
-        return styleElement.styleSheet.cssText = css;
-      } else {
-        return styleElement.innerHTML = css;
-      }
-    };
-    sheets = {};
-    styleElement = document.createElement('style');
-    head = document.getElementsByTagName('head')[0];
-    head.appendChild(styleElement);
-    links = document.getElementsByTagName('link');
-    innerSheetCount = 0;
-    outerSheetCount = 0;
-    for (_i = 0, _len = links.length; _i < _len; _i++) {
-      i = links[_i];
-      if (i.rel !== 'stylesheet') {
-        continue;
-      }
-      innerSheetCount++;
-      ajax(i.href, function(cssText) {
-        var sheet, tokenlist;
-        tokenlist = tokenize(cssText);
-        sheet = parse(tokenlist);
-        analyzeStylesheet(sheet);
-        sheets[i.href] = sheet;
-        outerSheetCount++;
-        if (outerSheetCount === innerSheetCount) {
-          window.onresize();
-        }
-      });
-    }
-    window.onresize = onresize;
-  };
-
-  console.log('About to do the engine unless...', browserSupportsUnitsNatively());
-
-  if (!browserSupportsUnitsNatively()) {
-    initLayoutEngine();
-  }
-
-}).call(this);

@@ -28,9 +28,9 @@ Please <a href="http://browsehappy.com/" title="browsehappy">upgrade your browse
     <div class="main">
       <div class="vic">
         <div class="vid-wrapper">
-          <video loop autoplay class="covervid-video">
-            <source src="video/bg_h.mp4" type="video/mp4">
-            <source src="video/bg_v8_low.webm" type="video/webm" codecs="vp8,vorbis">
+          <video id="video_bg" autoplay loop poster="video/bg.jpg" class="covervid-video">
+            <source src="video/bg.mp4" type="video/mp4">
+            <source src="video/bg.webm" type="video/webm" codecs="vp8,vorbis">
           </video>
         </div>
         <div class="flash"></div>
@@ -182,18 +182,10 @@ Please <a href="http://browsehappy.com/" title="browsehappy">upgrade your browse
       </div>
       <div class="vid">
         <div class="vid-wrapper">
-          <video id="video_big" class="covervid-video-ts">
-            <source src="video/vid_h.mp4" type="video/mp4">
-            <source src="video/vid_v8.webm" type="video/webm" codecs="vp8,vorbis">
+          <video id="video_big" width="100%" poster="video/bg.jpg" class="covervid-video-ts">
+            <source src="video/vid.mp4" type="video/mp4">
+            <source src="video/vid.webm" type="video/webm" codecs="vp8,vorbis">
           </video>
-          <script type="text/javascript">
-            var vid1 = document.getElementById("video_big");
-            vid1.addEventListener("canplaythrough", function () {
-              //document.getElementById("cpt").textContent = "Ready to play whole video";
-              console.log("video loaded");
-            }, false);
-            
-          </script>
         </div>
         <div class="ftr-vid">
           <div class="ftr_w"><img src="img/ftr-line2.svg" alt="" class="ftr-vid-line">
@@ -220,9 +212,20 @@ Please <a href="http://browsehappy.com/" title="browsehappy">upgrade your browse
               <path id="svg_bg" fill="#1D3176" d="M60.1 12.67l-5.796 6.06L38.35 0 0 44.93l42.613 46.468 44.1-46.442L60.1 12.67zm-5.895 9.494l5.767-6.03L72.54 31.38c-1.64.883-6.09 2.965-11.758 2.965-9.883 0-14.887-10.472-28.59-10.472-6.307 0-11.35 2.113-15.158 4.643L38.35 3.546l15.855 18.618zM60.1 12.67l-5.796 6.06L38.35 0 0 44.93l42.613 46.468 44.1-46.442L60.1 12.67zm-5.895 9.494l5.767-6.03L83.534 44.72l-40.74 43.028-39.01-42.48 13.25-16.75L38.35 3.545l15.855 18.618z"></path>
             </svg>
           </div>
-          <div class="cover_text_1"><span class="cover_big">Полюс притяжения</span><span>Совместный проект РИА Новости и «Газпром нефть»</span></div>
+          <div class="cover_text_1"><span class="cover_big">Полюс притяжения</span><span>Интерактивный проект о самом загадочном уголке Земли</span></div>
           <div class="cover_text_2"><span>ВИКТОРИНА</span><span class="cover_big">Неизвестная Арктика</span><span>Проверьте ваши знания и узнайте<br>больше о самом загадочном регионе планеты</span></div>
-          <div class="cover_button"><span>НАЧАТЬ</span></div>
+          <div class="cover_preload">
+            <div class="cover_button_preload">
+              <svg width="85px" height="85px" viewbox="-5 -5 65 65" xmlns="http://www.w3.org/2000/svg" stroke="#1D3176">
+                <g fill="none" fill-rule="evenodd">
+                  <circle stroke-opacity=".8" cx="18" cy="18" r="20" stroke-width="2" fill="none" fill-rule="evenodd"></circle>      
+                  <path d="M36 18c0-9.94-8.06-18-18-18" stroke-width="4"></path>        
+                  <animatetransform attributename="transform" type="rotate" from="0 18 18" to="360 18 18" dur="2s" repeatcount="indefinite"></animatetransform>
+                </g>
+              </svg>
+            </div>
+            <div class="cover_button"><span>НАЧАТЬ</span></div>
+          </div>
         </div><img src="img/ftr-logo-r.svg" alt="" class="ftr-logo">
         <audio id="sound_bg" loop>
           <source src="data/bg_sound.ogg" type="audio/ogg; codecs=vorbis">
