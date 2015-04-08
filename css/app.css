@@ -967,6 +967,9 @@ h6 {
 .close {
   display: none;
 }
+.hide {
+  visibility: hidden;
+}
 .covervid-video,
 .covervid-video-ts {
   position: absolute;
@@ -1013,6 +1016,7 @@ h6 {
     position: absolute;
     right: 20px;
     top: 17px;
+    cursor: pointer;
   }
   .head_logo {
     top: 20px;
@@ -1045,7 +1049,7 @@ h6 {
     top: 50%;
     left: 50%;
     margin-left: -350px;
-    margin-top: -280px;
+    margin-top: -255px;
   }
   p.question-text {
     font-size: 24px;
@@ -1071,7 +1075,7 @@ h6 {
     padding: 15px 25px 9px 0px;
     border-radius: 5px;
     position: absolute;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,59,118,0.8);
     color: #fff;
     width: 672px;
     left: 10px;
@@ -1119,25 +1123,24 @@ h6 {
     vertical-align: middle;
     display: table-cell;
   }
-  .ftr,
-  .ftr-vid {
+  .ftr {
     width: 100%;
-    height: 124px;
+    height: 115px;
     position: absolute;
-    bottom: 0;
+    bottom: -200px;
     left: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,59,118,0.8);
     cursor: pointer;
     color: #fff;
     font-family: Geometria, Arial, sans-serif;
   }
-  .ftr .ftr_w,
-  .ftr-vid .ftr_w {
+  .ftr .ftr_w {
     width: 900px;
     margin: 0 auto;
   }
-  .ftr span.show_video,
-  .ftr-vid span.show_video {
+  .ftr span.show_video {
+    font-family: GeometriaLight, Arial, sans-serif;
+    text-rendering: optimizeLegibility;
     float: left;
     opacity: 1;
     -ms-filter: none;
@@ -1147,8 +1150,7 @@ h6 {
     top: 20px;
     font-size: 14px;
   }
-  .ftr .ftr-line,
-  .ftr-vid .ftr-line {
+  .ftr .ftr-line {
     position: relative;
     overflow: hidden;
     border-radius: 5px;
@@ -1159,39 +1161,34 @@ h6 {
     top: 24px;
   }
   .ftr .ftr-line #svg_line_small,
-  .ftr-vid .ftr-line #svg_line_small,
-  .ftr .ftr-line #svg_line_big,
-  .ftr-vid .ftr-line #svg_line_big {
+  .ftr .ftr-line #svg_line_big {
     position: absolute;
   }
-  .ftr .ftr-line #svg_line_big,
-  .ftr-vid .ftr-line #svg_line_big {
+  .ftr .ftr-line #svg_line_big {
     top: -40px;
   }
-  .ftr .ftr-text,
-  .ftr-vid .ftr-text {
+  .ftr .ftr-text {
     float: left;
     top: 15px;
     left: 45px;
   }
-  .ftr .ftr-text p.title,
-  .ftr-vid .ftr-text p.title {
+  .ftr .ftr-text p.title {
     top: 10px;
     font-size: 60px;
   }
-  .ftr .ftr-text p.small,
-  .ftr-vid .ftr-text p.small {
+  .ftr .ftr-text p.small {
     font-size: 18px;
     line-height: 1.3;
+    font-family: GeometriaLight, Arial, sans-serif;
+    text-rendering: optimizeLegibility;
     text-transform: uppercase;
   }
   .ftr {
+    background: rgba(0,59,118,0.8);
     z-index: 2;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: local;
-    background-position: center;
-    background-image: url("../img/footer_bg.png");
+  }
+  .ftr.hover {
+    cursor: pointer;
   }
   .ftr-logo {
     position: absolute;
@@ -1200,16 +1197,17 @@ h6 {
     filter: alpha(opacity=0);
     bottom: 30px;
     right: 20px;
+    z-index: 4;
   }
   .answer {
     border-radius: 5px;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     position: absolute;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,59,118,0.8);
     color: #fff;
     width: 672px;
-    padding: 15px 50px;
+    padding: 10px 50px;
     left: 10px;
     box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.43);
   }
@@ -1238,7 +1236,7 @@ h6 {
     font-size: 14px;
     color: #fff;
     text-align: center;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
   }
   .answer p.title {
     font-family: GeometriaBold, Arial, sans-serif;
@@ -1259,7 +1257,7 @@ h6 {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     position: absolute;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,59,118,0.8);
     box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.43);
     color: #fff;
     width: 183px;
@@ -1325,13 +1323,17 @@ h6 {
   .vid_social .social_block_vk a {
     line-height: 8px;
   }
-  .sound {
+  .sound,
+  .sound_teaser {
     cursor: pointer;
     position: absolute;
     left: 25px;
     bottom: 20%;
   }
-  .sound g.sound_off {
+  .sound g.sound_off,
+  .sound_teaser g.sound_off,
+  .sound g.sound_teaser_off,
+  .sound_teaser g.sound_teaser_off {
     visibility: hidden;
   }
   .result {
@@ -1339,7 +1341,7 @@ h6 {
     border-radius: 5px;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,59,118,0.8);
     color: #fff;
     padding: 20px 25px 20px 50px;
     margin-top: 0px;
@@ -1379,8 +1381,11 @@ h6 {
   .result .social_result {
     padding: 40px 0px 20px 200px;
   }
-  .result .social_result a {
-    padding: 25px 20px 0px 0px;
+  .result .social_result div {
+    width: 100px;
+    padding: 0px 20px 0px 0px;
+    cursor: pointer;
+    display: inline-block;
   }
   .result .social_result svg:hover .path {
     fill: #f6871f;
@@ -1474,6 +1479,7 @@ h6 {
   .vid .ftr-mail-text .ftr-mail-button {
     float: left;
     position: static;
+    cursor: pointer;
     display: inline-block;
     width: 275px;
     height: 42px;
@@ -1493,7 +1499,7 @@ h6 {
     width: 100%;
     height: 80px;
     position: fixed;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,59,118,0.8);
     bottom: 0;
     text-align: center;
     border-top: 1px solid #000;
@@ -1523,12 +1529,23 @@ h6 {
   }
   .ftr-vid {
     top: 0;
-    height: 8%;
-    background: transparent;
+    left: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 124px;
+    position: absolute;
+    z-index: 5;
+  }
+  .ftr-vid .ftr_w {
+    width: 900px;
+    margin: 0 auto;
+  }
+  .ftr-vid .ftr_img {
+    top: -6px;
   }
   .ftr-vid .ftr-vid-line {
     float: left;
-    left: 120px;
+    left: 110px;
     top: 10px;
   }
   .ftr-vid .ftr-vid-text {
@@ -1630,10 +1647,20 @@ h6 {
   .social_mob {
     display: none;
   }
+  .cover_debug {
+    position: fixed;
+    width: 600px;
+    height: 200px;
+    top: 0;
+    left: 0;
+  }
 }
 @media only screen and (max-width: 1270px) {
   .ftr-logo {
     width: 170px;
+  }
+  .page {
+    margin-top: -255px;
   }
 }
 @media only screen and (max-width: 1160px) {
@@ -1726,6 +1753,10 @@ h6 {
   .ftr .ftr-text p.small,
   .ftr-vid .ftr-text p.small {
     font-size: 14px;
+  }
+  .vid .ftr-mail .ftr-mail-logo {
+    width: 160px;
+    right: 20px;
   }
 }
 @media only screen and (max-width: 1000px) {
@@ -1958,13 +1989,17 @@ h6 {
     height: 100%;
   }
   body {
-    background: #282828;
+    background: #2a5e8e;
     font-family: Geometria, Arial, sans-serif;
     color: #ececec;
   }
+  .main {
+    width: 100%;
+  }
   .vic {
-    background: #282828;
+    background: #fff;
     height: 100%;
+    width: 100%;
   }
   .head_logo_r {
     background-image: url("../img/logo-mob.svg");
@@ -1975,12 +2010,14 @@ h6 {
     top: 20px;
     z-index: 4;
     position: absolute;
+    display: none;
   }
   .social_mob {
     position: absolute;
     top: 20px;
     right: 20px;
     z-index: 4;
+    display: none;
   }
   .social_mob a.social_mob_tw,
   .social_mob a.social_mob_fb,
@@ -1990,20 +2027,17 @@ h6 {
   }
   .page {
     margin-top: 0px;
-    padding-top: 80px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-image: url("../img/bg-mob.jpg");
+    padding-top: 50px;
+    width: 100%;
   }
   .questions,
   .answer {
-    background: #282828;
+    background: #2a5e8e;
+    color: #fff;
   }
   .questions,
   .answer {
-    padding: 15px;
+    padding: 10px;
     padding-bottom: 8px;
     margin-top: 15px;
   }
@@ -2011,9 +2045,11 @@ h6 {
     color: #000;
     font-size: 20px;
     font-size: 1.2em;
-    line-height: 1.5;
+    line-height: 1.3;
     font-family: GeometriaBold, Arial, sans-serif;
     padding-right: 5px;
+    padding-left: 10px;
+    margin-left: 0px;
   }
   p.question-counter {
     color: #000;
@@ -2040,19 +2076,24 @@ h6 {
   }
   .option {
     cursor: pointer;
-    height: 68px;
+    height: 90px;
     -moz-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     background: rgba(0,59,118,0.8);
     color: #fff;
-    padding-top: 15px;
-    margin-bottom: 9px;
+    padding-top: 6px;
+    margin-bottom: 6px;
     text-align: left;
+    border-bottom: 1px solid #b6b6b6;
+  }
+  .option.last {
+    border: none;
   }
   .option p.option_text {
     font-size: 1.2em;
-    line-height: 1.5;
+    line-height: 1.2;
+    height: 70px;
     pointer-events: none;
     vertical-align: middle;
     display: table-cell;
@@ -2063,23 +2104,25 @@ h6 {
     width: 100%;
     display: none;
     position: static;
-    border: 1px solid #fff;
+    border: 1px solid #b6b6b6;
     cursor: pointer;
-    background: #000;
+    background: #264867;
   }
   .answer .text {
-    font-size: 20px;
-    font-size: 1.2em;
-    line-height: 1.5;
+    font-size: 18px;
+    font-size: 1.1em;
+    line-height: 1.3;
     margin-top: -15px;
   }
   .answer .status {
     text-align: center;
     font-size: 1.2em;
+    padding-bottom: 0px;
+    margin-top: -10px;
   }
   .answer .title {
     font-size: 1.9em;
-    margin-top: -15px;
+    margin-top: -50px;
     font-family: GeometriaBold, Arial, sans-serif;
   }
   .answer .text-descr {
@@ -2095,7 +2138,7 @@ h6 {
     cursor: pointer;
   }
   .answer .text-descr img.img-decr {
-    margin-left: 50px;
+    margin-left: 45px;
   }
   .answer svg.svg_prev_decr,
   .answer svg.svg_next_decr {
@@ -2103,10 +2146,10 @@ h6 {
     top: -55px;
   }
   .result {
-    background: #282828;
+    background: #2a5e8e;
     padding: 10px;
     text-align: center;
-    margin-top: 0px;
+    margin-top: -50px;
   }
   .result img.img-result {
     width: 165px;
@@ -2118,7 +2161,7 @@ h6 {
   .result p.text-result {
     font-size: 20px;
     font-size: 1.3em;
-    line-height: 1.5;
+    line-height: 1.3;
     text-align: left;
   }
   .result .result-title {
@@ -2138,6 +2181,12 @@ h6 {
   .result .social_result {
     padding: 0;
   }
+  .result .social_result .social_result_tw,
+  .result .social_result .social_result_fb,
+  .result .social_result .social_result_vk {
+    display: inline-block;
+    padding: 15px;
+  }
   .result .social_result a {
     text-decoration: none;
     padding: 12px 5px 40px 4px;
@@ -2151,7 +2200,10 @@ h6 {
     color: #282828;
     text-transform: uppercase;
     text-align: center;
-    padding: 160px 10px;
+    padding-top: 160px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 28%;
     z-index: 3;
     background-size: cover;
     background-repeat: no-repeat;

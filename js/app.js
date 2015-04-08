@@ -10549,24 +10549,118 @@ return jQuery;
 }).call(this);
 
 /**
+ * Created by kuteynikov on 31.03.2015.
+ */
+
+var adRiverQuestions = [
+    {
+        show:   "http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932090&bid=3807781&bn=3807781&rnd=492285771",
+        click:  "http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932090&bid=3803559&bn=3803559&rnd=108338083"
+    },
+    {
+        show:   "http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932091&bid=3807783&bn=3807783&rnd=1931687850",
+        click:  "http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932091&bid=3803560&bn=3803560&rnd=440302645"
+    },
+    {
+        show:   "http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932092&bid=3807784&bn=3807784&rnd=718698552",
+        click:  "http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932092&bid=3803561&bn=3803561&rnd=197487112"
+    },
+    {
+        show:   "http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932093&bid=3807786&bn=3807786&rnd=216786064",
+        click:  "http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932093&bid=3803562&bn=3803562&rnd=1972261867"
+    },
+    {
+        show:   "http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932094&bid=3807787&bn=3807787&rnd=1150737149",
+        click:  "http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932094&bid=3803564&bn=3803564&rnd=96234790"
+    },
+    {
+        show:   "http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932095&bid=3807789&bn=3807789&rnd=1854248710",
+        click:  "http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932095&bid=3803565&bn=3803565&rnd=1036483791"
+    },
+    {
+        show:   "http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932096&bid=3807790&bn=3807790&rnd=205188113",
+        click:  "http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932096&bid=3803566&bn=3803566&rnd=223773647"
+    },
+    {
+        show:   "http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932097&bid=3807791&bn=3807791&rnd=76714271",
+        click:  "http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932097&bid=3803567&bn=3803567&rnd=52405051"
+    },
+    {
+        show:   "http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932098&bid=3807794&bn=3807794&rnd=772815077",
+        click:  "http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932098&bid=3803568&bn=3803568&rnd=165816614"
+    },
+    {
+        show:   "http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932099&bid=3807795&bn=3807795&rnd=1916794726",
+        click:  "http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932099&bid=3803569&bn=3803569&rnd=1964738498"
+    },
+    {
+        show:   "http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932100&bid=3807797&bn=3807797&rnd=1548674915",
+        click:  "http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932100&bid=3803570&bn=3803570&rnd=1207623684"
+    },
+    {
+        show:   "http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932101&bid=3807798&bn=3807798&rnd=135425172",
+        click:  "http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932101&bid=3803571&bn=3803571&rnd=1501427280"
+    },
+    {
+        show:   "http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932102&bid=3807799&bn=3807799&rnd=1292272875",
+        click:  "http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932102&bid=3803572&bn=3803572&rnd=994376733"
+    },
+    {
+        show:   "http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932103&bid=3807800&bn=3807800&rnd=768416061",
+        click:  "http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932103&bid=3803573&bn=3803573&rnd=467340350"
+    }
+]
+
+var adRiverResults = [
+    "http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932105&bid=3807899&bn=3807899&rnd=414947374",
+    "http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932106&bid=3807900&bn=3807900&rnd=52787718",
+    "http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932107&bid=3807901&bn=3807901&rnd=419587451",
+    "http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932108&bid=3807902&bn=3807902&rnd=275476500",
+    "http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932109&bid=3807903&bn=3807903&rnd=2057489510"
+]
+
+function adriver(px){
+    console.log('// adriverpixel // ' + px + ' // adriverpixel //')
+    var Pixel = new Image();
+        Pixel.src = px;
+}
+
+/**
  * Created by kuteynikov on 06.03.2015.
  */
 var questions = [];
 
+var headers = [
+    'Мне еще столько нужно узнать об Арктике!',
+    'Я начинающий исследователь Арктики!',
+    'Я полярник-любитель!',
+    'Я опытный полярник!',
+    'Я настоящий знаток Арктики!'
+]
+
 var results = [
-    'Ваши знания об Арктике оставляют желать лучшего, но это поправимо. Следите за обновлениями проекта «Полюс притяжения» – и вскоре вы сможете открыть для себя много нового!',
-    'Вы неплохо разбираетесь в предмете, но тема Арктики поистине неисчерпаема. Следите за обновлениями проекта «Полюс притяжения» – и вскоре вы сможете открыть для себя много нового!',
-    'Судя по всему, вы весьма начитаны и хорошо знакомы с темой. И хотя в настоящую арктическую экспедицию ехать вам пока рановато, вас вполне можно считать полярником-любителем. Следите за обновлениями проекта «Полюс притяжения» и продолжайте расширять свои познания!',
-    'Поздравляем! Вы показали отличные знания об Арктике и можете считаться настоящим полярником. Следите за обновлениями проекта «Полюс притяжения» и продолжайте расширять свои познания!',
-    'Великолепно! Ваши знания об Арктике настолько обширны и глубоки, что Вас можно назвать опытным арктическим исследователем. Следите за обновлениями проекта «Полюс притяжения»!'
+    'Ваши знания об Арктике пока не столь обширны, но это поправимо. Следите за обновлениями проекта “Полюс притяжения” и вскоре вы сможете открыть для себя много нового!',
+    'Вы неплохо разбираетесь в предмете, но тема Арктики поистине неисчерпаема. Следите за обновлениями проекта “Полюс притяжения” и вскоре вы сможете открыть для себя много нового!',
+    'Судя по всему, вы весьма начитаны и хорошо знакомы с темой, хотя в настоящую арктическую экспедицию ехать вам пока рано. Следите за обновлениями проекта “Полюс притяжения” и расширяйте свои знания!',
+    'Поздравляем! Вы хорошо знакомы с темой, поэтому вас вполне можно считать полярником-любителем! Следите за обновлениями проекта “Полюс притяжения” и продолжайте расширять свои познания!',
+    'Великолепно! Ваши знания об Арктике обширны, и Вас можно назвать настоящим опытным полярником! Оставайтесь с нами и следите за обновлениями проекта “Полюс притяжения”!'
 ];
 
 var results_short = [
-    'Ваши знания об Арктике оставляют желать лучшего, но это поправимо.',
-    'Вы неплохо разбираетесь в предмете, но тема Арктики поистине неисчерпаема.',
-    'Судя по всему, вы весьма начитаны и хорошо знакомы с темой.',
-    'Поздравляем! Вы показали отличные знания об Арктике и можете считаться настоящим полярником.',
-    'Великолепно! Ваши знания об Арктике настолько обширны и глубоки, что Вас можно назвать опытным арктическим исследователем.'
+    'Это невероятно, насколько интересна тема Арктики! Мне открылось много новых фактов! Проверьте себя в викторине: http://bit.ly/1bPzX93',
+    'Оказывается, тема Арктики поистине неисчерпаема. Мне открылось много новых фактов! Проверьте себя в викторине: http://bit.ly/1bPzX93',
+    'Оказалось, что я неплохо разбираюсь в теме Арктики! Проверьте себя в викторине: http://bit.ly/1bPzX93',
+    'Отлично! Меня вполне можно считать полярником-любителем! Проверьте себя в викторине: http://bit.ly/1bPzX93',
+    'Великолепно! Мои знания об Арктике настолько обширны, что меня можно назвать настоящим полярником! Проверьте себя: http://bit.ly/1bPzX93'
+];
+
+var resultImages = [
+    "http://vid-1.ria.ru/ig/sip/victorina_arctic/img/sharing_result1.jpg",
+    "http://vid-1.ria.ru/ig/sip/victorina_arctic/img/sharing_result2.jpg",
+    "http://vid-1.ria.ru/ig/sip/victorina_arctic/img/sharing_result3.jpg",
+    "http://vid-1.ria.ru/ig/sip/victorina_arctic/img/sharing_result4.jpg",
+    "http://vid-1.ria.ru/ig/sip/victorina_arctic/img/sharing_result5.jpg",
+    "http://vid-1.ria.ru/ig/sip/victorina_arctic/img/sharing.jpg"
 ];
 
 var resultIntervals = [4, 7, 10, 13];
@@ -10660,7 +10754,7 @@ debug.addMessage('Hello debug');
  */
 
 initSocialsResults = function(settings) {
-
+    console.log(settings)
     var url = 'http://arctic.ria.ru/victorina/share';
 
     var fb1 = settings.desc
@@ -10686,39 +10780,45 @@ initSocialsResults = function(settings) {
     var tUrlR = 'https://twitter.com/intent/tweet' +
     '?status=' + (settings.sDesc || settings.desc);
 
-    var vk = document.getElementById("vkr"),
-        fb = document.getElementById("fbr"),
-        t = document.getElementById("tr");
 
-    if(vk) {
-        vk.addEventListener("click", function() {
+    if(soc_vk) {
+        soc_vk.on("click", function() {
+            //////////////////////////////////////////////////////
+            adriver("http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932112&bid=3807906&bn=3807906&rnd=1886948510") // шара вконтакте, клик
+            //////////////////////////////////////////////////////
             window.open(vkUrlR, 'sharer', 'toolbar=0,status=0,width=626,height=436');
         });
     }
 
-    if(fb) {
-        fb.addEventListener("click", function() {
+    if(soc_fb) {
+        soc_fb.on("click", function() {
             var indx = 1;
             if(fb1 == results[0])       indx = 1
             else if(fb1 == results[1])  indx = 2
             else if(fb1 == results[2])  indx = 3
             else if(fb1 == results[3])  indx = 4
             else if(fb1 == results[4])  indx = 5
+            //////////////////////////////////////////////////////
+            adriver("http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932111&bid=3807905&bn=3807905&rnd=1021305255") // шара facebook, клик
+            //////////////////////////////////////////////////////
             window.open('http://www.facebook.com/sharer.php?u='+url+''+indx+'.html', 'sharer', 'toolbar=0,status=0,width=548,height=325,resizable=yes');
         });
     }
-    if(t) {
-        t.addEventListener("click", function() {
+    if(soc_tw) {
+        soc_tw.on("click", function() {
+            //////////////////////////////////////////////////////
+            adriver("http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932113&bid=3807907&bn=3807907&rnd=1609098473") // шара twitter, клик
+            //////////////////////////////////////////////////////
             window.open(tUrlR, 'sharer', 'toolbar=0,status=0,width=626,height=436');
         });
     }
 };
 
 
-// var dataURL = 'http://ria.ru/kaleidoscope/20150406/1054344118-script.html?xml=1';
+//var dataURL = 'http://ria.ru/kaleidoscope/20150406/1054344118-script.html?xml=1';
 var dataURL = 'data/data.xml';
 var answerURL = 'http://ria.ru/services/victorins/add-answer';
-
+var newVictorinUrl = 'http://ria.ru/services/victorins/reset'
 
 var cQ = 0; // currentQuestion
 var tQ = questions.length;  // totalQuestions
@@ -10747,7 +10847,15 @@ var resultQ = null;
 var resultQIndex = null;
 var soundClick = $('audio#sound_click');
 var soundBg = $('audio#sound_bg');
+var videoBg = document.getElementById("video_bg");
+var videoTeaser = document.getElementById("video_big");
 var sound = true;
+var sound_teaser = true;
+var rialogo = $('.head_logo_r');
+
+var sh_tw;
+var sh_fb;
+var sh_vk;
 
 var soc_tw = $('.social_result_tw');
 var soc_fb = $('.social_result_fb');
@@ -10768,44 +10876,211 @@ var vicAnswerId;
 
 //////////////
 
-// var animationBegin = document.getElementById("animation-begin");
-// var animationEnd   = document.getElementById("animation-end");
-// var animationPolylineBegin = document.getElementById("animation-polyline-begin");
-// var animationPolylineEnd = document.getElementById("animation-polyline-end");
+var desktop = false;
+
+///////////////
+
+var BrowserDetect = {
+        init: function () {
+            this.browser = this.searchString(this.dataBrowser) || "Other";
+            this.version = this.searchVersion(navigator.userAgent) || this.searchVersion(navigator.appVersion) || "Unknown";
+        },
+        searchString: function (data) {
+            for (var i = 0; i < data.length; i++) {
+                var dataString = data[i].string;
+                this.versionSearchString = data[i].subString;
+
+                if (dataString.indexOf(data[i].subString) !== -1) {
+                    return data[i].identity;
+                }
+            }
+        },
+        searchVersion: function (dataString) {
+            var index = dataString.indexOf(this.versionSearchString);
+            if (index === -1) {
+                return;
+            }
+
+            var rv = dataString.indexOf("rv:");
+            if (this.versionSearchString === "Trident" && rv !== -1) {
+                return parseFloat(dataString.substring(rv + 3));
+            } else {
+                return parseFloat(dataString.substring(index + this.versionSearchString.length + 1));
+            }
+        },
+
+        dataBrowser: [
+            {string: navigator.userAgent, subString: "Chrome", identity: "Chrome"},
+            {string: navigator.userAgent, subString: "MSIE", identity: "Explorer"},
+            {string: navigator.userAgent, subString: "Trident", identity: "Explorer"},
+            {string: navigator.userAgent, subString: "Firefox", identity: "Firefox"},
+            {string: navigator.userAgent, subString: "iPad", identity: "iPad"},
+            {string: navigator.userAgent, subString: "Safari", identity: "Safari"},
+            {string: navigator.userAgent, subString: "Opera", identity: "Opera"}
+        ]
+
+};
+
+BrowserDetect.init();
+
+if ( $(window).width() > 700 ) { desktop = true }
+
+
+var video_src_bg = {
+  large: {
+    webm: "http://vid-1.ria.ru/ig/sip/victorina_arctic/victorina/video/bg.webm",
+    mp4: "http://vid-1.ria.ru/ig/sip/victorina_arctic/victorina/video/bg.mp4"
+  },
+  medium: {
+    webm: "http://vid-1.ria.ru/ig/sip/victorina_arctic/victorina/video/bg_1280.webm",
+    mp4: "http://vid-1.ria.ru/ig/sip/victorina_arctic/victorina/video/bg_1280.mp4"
+  },
+  small: {
+    webm: "http://vid-1.ria.ru/ig/sip/victorina_arctic/victorina/video/bg_1024.webm",
+    mp4: "http://vid-1.ria.ru/ig/sip/victorina_arctic/victorina/video/bg_1024.mp4"
+  }
+};
+
+var video_src_vid = {
+  large: {
+    webm: "http://vid-1.ria.ru/ig/sip/victorina_arctic/victorina/video/vid.webm",
+    mp4: "http://vid-1.ria.ru/ig/sip/victorina_arctic/victorina/video/vid.mp4"
+  },
+  medium: {
+    webm: "http://vid-1.ria.ru/ig/sip/victorina_arctic/victorina/video/vid_1280.webm",
+    mp4: "http://vid-1.ria.ru/ig/sip/victorina_arctic/victorina/video/vid_1280.mp4"
+  },
+  small: {
+    webm: "http://vid-1.ria.ru/ig/sip/victorina_arctic/victorina/video/vid_1024.webm",
+    mp4: "http://vid-1.ria.ru/ig/sip/victorina_arctic/victorina/video/vid_1024.mp4"
+  }
+};
+
+var audio_src = {
+  bg: {
+    ogg: "http://vid-1.ria.ru/ig/sip/victorina_arctic/victorina/data/bg_sound.ogg",
+    mp3: "http://vid-1.ria.ru/ig/sip/victorina_arctic/victorina/data/bg_sound.mp3"
+  },
+  click: {
+    ogg: "http://vid-1.ria.ru/ig/sip/victorina_arctic/victorina/data/click_sound2.ogg",
+    mp3: "http://vid-1.ria.ru/ig/sip/victorina_arctic/victorina/data/click_sound2.mp3"
+  },
+  music: {
+    ogg: "http://vid-1.ria.ru/ig/sip/victorina_arctic/victorina/data/teaser_music.ogg",
+    mp3: "http://vid-1.ria.ru/ig/sip/victorina_arctic/victorina/data/teaser_music.mp3"
+  }
+}
+
+function changeAud(audio, n){
+    var audio = document.getElementById(audio);
+    if(Modernizr.audio && Modernizr.audio.mp3) {
+      audio.setAttribute("src", n.mp3);
+      audio.setAttribute("type", "audio/mpeg");
+    } else if(Modernizr.audio && Modernizr.audio.ogg) {
+      audio.setAttribute("src", n.ogg);
+      audio.setAttribute("type", "audio/ogg");
+      audio.setAttribute("codecs", "vorbis");
+    }
+}
+function changeVid(video, n, format){
+    debug.addMessage("format: " + format);
+    var video = document.getElementById(video);
+    if(Modernizr.video && Modernizr.video.h264 && ( format == undefined || format == "mp4") ) {
+      video.setAttribute("src", n.mp4);
+      video.setAttribute("type", "video/mp4");
+    } else if(Modernizr.video && Modernizr.video.webm && ( format == undefined || format == "webm")) {
+      video.setAttribute("src", n.webm);
+      video.setAttribute("type", "video/webm");
+      video.setAttribute("codecs", "vp8,vorbis");
+    }
+}
+
+////
+if(desktop){
+  var browser = BrowserDetect.browser;
+  if ( $(window).width() > 1281 ){
+    /// Video 1366
+    if (browser == "Firefox")
+      changeVid("video_bg", video_src_bg.large, "webm");
+    else
+      changeVid("video_bg", video_src_bg.large);
+    changeVid("video_big", video_src_vid.large);
+  }else if ( $(window).width() < 1281 && $(window).width() > 1025 ){
+    /// Video 1280
+    if (browser == "Firefox")
+      changeVid("video_bg", video_src_bg.medium, "webm");
+    else
+      changeVid("video_bg", video_src_bg.medium);
+    changeVid("video_big", video_src_vid.medium);
+  }else if ( $(window).width() < 1025 ){
+    /// Video 1024
+    if (browser == "Firefox")
+      changeVid("video_bg", video_src_bg.small, "webm");
+    else
+      changeVid("video_bg", video_src_bg.small);
+    changeVid("video_big", video_src_vid.small);
+  }
+
+  debug.addMessage($("#sound_bg").attr("src"));
+  debug.addMessage($("#sound_click").attr("src"));
+
+  debug.addMessage($("#video_bg").attr("src"));
+  debug.addMessage($("#video_big").attr("src"));
+
+  changeAud("sound_bg", audio_src.bg);
+  changeAud("sound_click", audio_src.click);
+  changeAud("sound_teaser", audio_src.music);
+
+}
 
 $(window).on('resize', function(){
    resize();
    resizeVideo();
 
   if ($(window).width() > 1070){
-    if ($(window).height() < 790){
+    if ($(window).height() < 850){
       $(".page").css("margin-top", "-220px");
     }else{
       $(".page").css("margin-top", "-280px");
     }
+  }else if ($(window).width() > 700){
+    $(".page").css("margin-top", "-333px");
   }else{
-   $(".page").css("margin-top", "-333px");
+    $(".page").css("margin-top", "0px");
   }
 
 })
 
 $(window).load(function(){
-  resizeVideo();
 
-  var vid_bg = document.getElementById("video_bg");
-  vid_bg.play();
-  //vid_bg.onplaying = function() {
-  //  console.log("The video is now playing");
-  //};
+    resizeVideo();
 
-  vid_bg.addEventListener("timeupdate", function () {
-     // console.log(vid.currentTime );
-     if ( vid_bg.currentTime > 2.765 ){
-      vid_bg.currentTime = 0.1;
-      vid_bg.play();
-      //console.log( "replay" );
-     }
-   }, false);
+ if ($(window).width() < 321 && $(window).height() < 481 ){
+   $(".cover_mob").css({"padding-top": "70px"});
+   $("cover_mob_title").css({"margin-bottom": "0px"});
+ }
+
+  if(desktop){
+    //vid_bg.play();
+    //vid_bg.onplaying = function() {
+    //  console.log("The video is now playing");
+    //};
+    // vid_bg.addEventListener("timeupdate", function () {
+    //     //console.log(vid_bg.currentTime );
+    //    if ( vid_bg.currentTime > 2.765 ){
+    //     vid_bg.currentTime = 0.1;
+    //     vid_bg.play();
+    //     //console.log( "replay" );
+    //    }
+    //  }, false);
+  }
+
+
+    console.log(document.domain)
+    // document.domain = "ria.ru"
+    document.domain = location.hostname;
+    console.log(document.domain)
+
 
   $.ajax({
     type: "GET",
@@ -10813,7 +11088,6 @@ $(window).load(function(){
     dataType: "xml",
     success: xmlParser
   });
-
 });
 
 function resizeVideo(){
@@ -10852,71 +11126,21 @@ function resizeVideo(){
 
 }
 
-
 function resize(){
-
-      if ( $(window).width() > 1160 ){
-        // nextbtnQ.css({"top": ( $(".questions").height() - 264) + 116});
-        nextbtnQ.css({"top": ( ($(".questions").height() +20 ) /2 ) -35});
-        nextbtnA.css({"top":  (answer.height() + 30 ) / 2 - 35 } );
-      }else{
-        nextbtnQ.css({"top":  $(".questions").height() + 5 });
-        nextbtnA.css({"top":  answer.height() - 28 } );
-      }
-      // console.log( "pos: "+$(".questions").position().top + " offset: " + $(".questions").offset().top  + " height: " + $(".questions").height());
+  if ( $(window).width() > 1160 ){
+    nextbtnQ.css({"top": ( ($(".questions").height() +20 ) /2 ) -35});
+    nextbtnA.css({"top":  (answer.height() + 30 ) / 2 - 35 } );
+  }else{
+    nextbtnQ.css({"top":  $(".questions").height() + 5 });
+    nextbtnA.css({"top":  answer.height() - 28 } );
+  }
 }
-
-
-///////////////
-
-var BrowserDetect = {
-        init: function () {
-            this.browser = this.searchString(this.dataBrowser) || "Other";
-            this.version = this.searchVersion(navigator.userAgent) || this.searchVersion(navigator.appVersion) || "Unknown";
-        },
-        searchString: function (data) {
-            for (var i = 0; i < data.length; i++) {
-                var dataString = data[i].string;
-                this.versionSearchString = data[i].subString;
-
-                if (dataString.indexOf(data[i].subString) !== -1) {
-                    return data[i].identity;
-                }
-            }
-        },
-        searchVersion: function (dataString) {
-            var index = dataString.indexOf(this.versionSearchString);
-            if (index === -1) {
-                return;
-            }
-
-            var rv = dataString.indexOf("rv:");
-            if (this.versionSearchString === "Trident" && rv !== -1) {
-                return parseFloat(dataString.substring(rv + 3));
-            } else {
-                return parseFloat(dataString.substring(index + this.versionSearchString.length + 1));
-            }
-        },
-
-        dataBrowser: [
-            {string: navigator.userAgent, subString: "Chrome", identity: "Chrome"},
-            {string: navigator.userAgent, subString: "MSIE", identity: "Explorer"},
-            {string: navigator.userAgent, subString: "Trident", identity: "Explorer"},
-            {string: navigator.userAgent, subString: "Firefox", identity: "Firefox"},
-            {string: navigator.userAgent, subString: "Safari", identity: "Safari"},
-            {string: navigator.userAgent, subString: "Opera", identity: "Opera"}
-        ]
-
-};
-    
 
 ///////////////
 function xmlParser(xml) {
   questions = [];
-
   victorinaId = $(xml).find('victorina').attr('id');
   articleId = $(xml).find('article').attr('id')
-
   $(xml).find("vic_question").each(function () {
     questions.push(this)
   });
@@ -10925,14 +11149,15 @@ function xmlParser(xml) {
 }
 
 function start(){
-  init();
-  nextQuestion();
+    init();
+    nextQuestion();
+    //newVictorin();
 }
 
 function nextQuestion(){
-  answers.removeClass('checked')
-        .css({opacity: 1, backgroundColor: "transparent"})
-        .find('.checkbox_img').stop().css({opacity: 0});
+    answers.removeClass('checked')
+            .css({opacity: 1, backgroundColor: "transparent"})
+            .find('.checkbox_img').stop().css({opacity: 0});
   answer.addClass('close');
   $(".questions").css({"opacity": 1, display: "block"});
   cQ++;
@@ -10956,7 +11181,13 @@ function nextQuestion(){
   vicQuestionId = qst.attr('id');
 
   if(cQ <= tQ){
-    counter
+        //////////////////////////////////////////////////////
+        if(cQ!=1){
+            //adriver(adRiverQuestions[cQ-1].show)    //   показ вопроса (кроме первого)
+        }
+
+        //////////////////////////////////////////////////////
+      counter
         .stop()
         .text(cQ + '/' + tQ)
     question
@@ -10969,8 +11200,6 @@ function nextQuestion(){
         .css({opacity: 0})
         .attr("src", "img/questions/" + cQ + ".jpg" )
         .animate({opacity: 1}, 1500);
-
-    // if(!questions[cQ-1].subanswer){
     if(cQ != 7){
       textdescr.addClass("close");
     }else{
@@ -10985,19 +11214,49 @@ function nextQuestion(){
       $(e).find('p').text(qst_versions[newShuffle[i]].version);
     })
   }else{
-    calculateResult();
+        calculateResult();
+      //////////////////////////////////////////////////////
+      adriver('http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932104&bid=3803583&bn=3803583&rnd=30409299') // кнопка посмотреть результат, клик
+      //////////////////////////////////////////////////////
   }
 }
 
 function sendResults(){
-  $.ajax({
-    type: "GET",
-    url: answerURL,
-    data: 'victorina_id=' + victorinaId + '&article_id=' + articleId + '&vic_question_id=' + vicQuestionId + '&vic_answer_id=' + vicAnswerId,
-    success: function(){
-      console.log('send answer to server')
-    }
-  });
+    // document.domain = "ria.ru";
+    document.domain = location.hostname;
+    //document.cookie = "myValue=5,path=/;domain=ria.ru";
+
+    var geturl;
+    geturl = $.ajax({
+        type: "GET",
+        url: answerURL,
+        crossDomain: true,
+        async: true,
+        data: 'victorina_id=' + victorinaId + '&article_id=' + articleId + '&vic_question_id=' + vicQuestionId + '&vic_answer_id=' + vicAnswerId,
+        xhrFields: {
+            withCredentials: true
+        },
+        success: function (){
+            console.log("done!"+ geturl.getAllResponseHeaders());
+        }
+    });
+}
+
+function newVictorin(){
+    var geturl;
+    geturl = $.ajax({
+        type: "GET",
+        url: newVictorinUrl,
+        crossDomain: true,
+        async: true,
+        data: 'victorina_id=1054344117&article_id=105434411',
+        xhrFields: {
+            withCredentials: true
+        },
+        success: function (){
+            console.log("new victorin"+ geturl.getAllResponseHeaders());
+        }
+    });
 }
 
 function calculateResult(){
@@ -11015,20 +11274,33 @@ function calculateResult(){
   }
 
   function fff(n){
-    $(".text-result").html( results[n - 1] );
-    $(".img-result").attr("src", "img/results/" + n + ".svg");
+      //////////////////////////////////////////////////////
+      adriver(adRiverResults[n-1]) // показ результата
+
+      adriver("http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932111&bid=3807905&bn=3807905&rnd=1021305255")
+      adriver("http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932112&bid=3807906&bn=3807906&rnd=1886948510")
+      adriver("http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932113&bid=3807907&bn=3807907&rnd=1609098473")
+
+      //////////////////////////////////////////////////////
+
+      $(".text-result").html( results[n - 1] );
+      $(".img-result").attr("src", "img/results/" + n + ".svg");
 
     socObj = {
-      title:"Неизвестная Арктика",
+      title: headers[n-1],
       desc: results[n-1],
       sDesc: results_short[n-1],
-      url:"http://arctic.ria.ru/victorina",
-      sUrl:"http://goo.gl/RSQSUG",
-      img:"http://arctic.ria.ru/victorina/img/sharing_result"+n+".jpg"
+      url: "http://arctic.ria.ru/victorina",
+      sUrl: "http://goo.gl/RSQSUG",
+      //img: "http://arctic.ria.ru/victorina/img/sharing_result"+n+".jpg"
+        img: resultImages[n-1]
     }
+
+    initSocialsResults(socObj);
+
+      $(".result-title").text(headers[n-1] + " (" + rQ + " из 14)");
   }
 
-  $(".result-title").text("Ваш результат ― " + rQ + " из 14");
   counter.addClass("close");
   question.css("display", "none");
   answer.addClass("close");
@@ -11068,26 +11340,24 @@ function init(){
       })
 
   nextbtnQ.on('click', function(){
+    //////////////////////////////////////////////////////
+    if(cQ <= tQ){adriver(adRiverQuestions[cQ-1].click)} // ответ на вопрос
+    //////////////////////////////////////////////////////
     userAnswers.push(resultQIndex)
     showAnswer();
-
     sendResults();
-
     nextbtnQ.css({opacity: 0, display: "none"});
     nextbtnA.animate({opacity: 1}, 300).css({display: "table"});
+    if (desktop == false) { window.scrollTo(0, 0); }
   });
-
 
   nextbtnA.on('click', function(){
     nextQuestion();
     nextbtnA.css({opacity: 0, display: "none"});
     resize();
+    if (desktop == false) { window.scrollTo(0, 0); }
   });
 
-  // answer.on('click', function(){
-  //   nextQuestion();
-  //   // console.log(33334444);
-  // })
   prevDecr.on("click", function(){
     changeImage(-1);
   });
@@ -11095,11 +11365,22 @@ function init(){
     changeImage(1);
   });
 
-  again.on("click", function(){
+    again.on("click", function(){
+      //////////////////////////////////////////////////////
+      adriver("http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932110&bid=3803584&bn=3803584&rnd=976159766") // пройти еще раз, клик
+      //////////////////////////////////////////////////////
+
+        //////////////////////////////////////////////////////
+        adriver("http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932083&bid=3803615&bn=3803615&rnd=1141728765") // лого риановости, показ
+        //////////////////////////////////////////////////////
+
+
+
+
     cQ = 0; // currentQuestion
     rQ = 0;
     userAnswers = [];
-
+      newVictorin();
     result.addClass("close");
     counter.removeClass("close");
     question.css("display", "block");
@@ -11107,15 +11388,21 @@ function init(){
     nextQuestion();
   });
 
-  soc_tw.on("click", function(){
-    initSocialsResults(socObj);
-  })
-  soc_fb.on("click", function(){
-    initSocialsResults(socObj);
-  })
-  soc_vk.on("click", function(){
-    initSocialsResults(socObj);
-  })
+    rialogo.on('click', function(){
+        //////////////////////////////////////////////////////
+        adriver("http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932083&bid=3803615&bn=3803615&rnd=1141728765") // лого риановости, клик
+        //////////////////////////////////////////////////////
+        window.open('http://ria.ru/', '_blank');
+    })
+
+    ////////////////////// соцсети, шаринг викторины
+    sh_tw = $('.social-likes__widget_twitter')
+    sh_fb = $('.social-likes__widget_facebook')
+    sh_vk = $('.social-likes__widget_vkontakte')
+
+    sh_tw.on('click', function(){ adriver("http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932089&bid=3808112&bn=3808112&rnd=1091689114") })  // шаринг викторины в твиттере
+    sh_fb.on('click', function(){ adriver("http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932087&bid=3808110&bn=3808110&rnd=1905637326") })  // шаринг викторины в фейсбуке
+    sh_vk.on('click', function(){ adriver("http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932088&bid=3808111&bn=3808111&rnd=1492629026") })  // шаринг викторины вконтакте
 }
 
 function changeImage(n){
@@ -11133,9 +11420,11 @@ function changeImage(n){
 }
 
 function showAnswer(){
-  // nextbtn.find('span').text('СЛЕДУЮЩИЙ ВОПРОС')
   if(cQ == tQ){
     nextbtnA.find('span').text('ПОСМОТРЕТЬ РЕЗУЛЬТАТ');
+      //////////////////////////////////////////////////////
+      adriver('http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932104&bid=3807898&bn=3807898&rnd=528454244') // кнопка посмотреть результат, показ
+      //////////////////////////////////////////////////////
   }
   answer.removeClass('close').stop().css({opacity: 0})
 
@@ -11173,115 +11462,169 @@ function closeDown(btn, block){
 }
 
 function soundOff(){
-  soundBg.get(0).pause();
-  //soundClick.get(0).volume=0;
+  //$('#sound_bg').get(0).pause();
   $("g.sound_off").css("visibility", "visible");
   $("g.sound_on").css("visibility", "hidden");
 }
 function soundOn(){
-  soundBg.get(0).play();
+  //$('#sound_bg').get(0).play();
   $("g.sound_off").css("visibility", "hidden");
   $("g.sound_on").css("visibility", "visible");
+}
+
+function soundTeaserOff(){
+  //$('#sound_bg').get(0).pause();
+  $("g.sound_teaser_off").css("visibility", "visible");
+  $("g.sound_teaser_on").css("visibility", "hidden");
+}
+function soundTeaserOn(){
+  //$('#sound_bg').get(0).play();
+  $("g.sound_teaser_off").css("visibility", "hidden");
+  $("g.sound_teaser_on").css("visibility", "visible");
+}
+
+function IsEmail(email) {
+  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  return regex.test(email);
 }
 
 closeDown(".btn-close", ".ftr-mail")
 closeDown(".ftr_mob_btn", ".ftr_mob")
 
-// $(".btn-close").click(function(){
-//   $(".ftr-mail").animate({
-//     bottom: "-500px"
-//   }, 1100);
-// });
-
-
 $(".ftr").hover(function(){
-  // animationBegin.beginElement();
-  // animationPolylineBegin.beginElement();
-  // $(".video").removeClass("close");
-  // $(".ftr > .ftr-text").stop().animate({
-  //   bottom: "0px"
-  // }, 300);
   $("#svg_line_big").stop().animate({"top": "0"}, 500);
   $(".show_video").stop().animate({opacity: 1}, 300);
 }, function() {
-  // animationEnd.beginElement();
-  // animationPolylineEnd.beginElement();
   $("#svg_line_big").stop().animate({"top": "-40px"}, 1000);
   $(".show_video").stop().animate({opacity: 0}, 100);
-  //  $(".ftr > .ftr-text").stop().animate({
-  //   bottom: "-15px"
-  // }, 300);
-
-  // $(".ftr-mail").animate({ bottom: "0" }, 800);
 });
 
-
 $(".ftr").click(function(){
-  // $(".ftr-bg").css({opacity: 0});
+  // $("#debug-panel").show();
+    //////////////////////////////////////////////////////
+    adriver('http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932084&bid=3803581&bn=3803581&rnd=135566739') // клик на плашку полюс притяжения, показ тизера
+    //////////////////////////////////////////////////////
   $(".ftr").css({background: "transparent"});
   $(".vic").css({position: "relative"});
-  $("video.covervid-video-ts").get(0).play();
-  soundOff();
+  var vid_big = document.getElementById("video_big");
+  vid_big.play();
+  $("video.covervid-video").get(0).pause();
 
-  // setTimeout(function() {
-  //   $(".ftr-mail").css("bottom", "0");
-  //   $(".ftr-logo").css("bottom", "2%");
-  // }, 3000);
+  if (sound_teaser) {
+    vid_big.volume = 1;
+
+    if( $("#video_big").get(0).currentTime == 0 ){
+      $('#sound_teaser').get(0).pause();
+      $("#sound_teaser").get(0).currentTime = 0;
+      $("#sound_teaser").get(0).play();
+    }else{
+      $('#sound_teaser').get(0).pause();
+      $("#sound_teaser").get(0).currentTime = $("#video_big").get(0).currentTime;
+      $('#sound_teaser').get(0).play();
+    }
+
+
+
+  }else{
+    vid_big.volume = 0;
+  }
+  //soundOn();
+  $('#sound_bg').get(0).pause();
 
   $(".vic").animate({
     top: "-1500px"
   }, 1100);
 
+  setTimeout(function() {
+    $(".vic > .vid-wrapper").addClass("close");
+  }, 1000);
+
   // resizeVideo();
 });
 
 $(".ftr-vid").click(function(){
-  $(".ftr").css({
-    "background": "rgba(0,0,0,0.5)",
-    "background-size": "cover",
-    "background-repeat": "no-repeat",
-    "background-attachment": "local",
-    "background-position": "center",
-    "background-image": "url(../img/footer_bg.png)"
-    });
+  $(".ftr").css({ "background": "rgba(0, 59, 118,0.8)"});
   $(".vic").css({position: "absolute"});
   $("video.covervid-video-ts").get(0).pause();
-  // if ( $("g.sound_on").css("visibility") == "hidden" ){ soundOn(); }
-  if (sound == true) { soundOn(); }
-  //console.log( $("g.sound_on").css("visibility") );
+  $("video.covervid-video").get(0).play();
+
+  if (sound == true) {
+    $('#sound_bg').get(0).play();
+  }else{
+    $('#sound_bg').get(0).pause();
+  }
+  $("#video_big").get(0).volume = 0;
+
+
+  $('#sound_teaser').get(0).pause();
+  // $("#sound_teaser").get(0).currentTime = 0;
+
+
+//  if (sound == true) { soundOn(); }
+
   $(".vic").animate({
     top: "0"
   }, 700);
+
+  $(".vic > .vid-wrapper").removeClass("close");
+
+    //////////////////////////////////////////////////////
+    adriver('http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932085&bid=3803582&bn=3803582&rnd=1534061401') // клик на кнопку вернуться с тизера
+    //////////////////////////////////////////////////////
 });
 
 $(".cover_mob_button").click(function(){
-  // console.log(123);
-  // $(".cover_mob").animate({top: "-1000"}, 1100);
-  // $(".page").animate({"margin-top": "0"}, 1100);
   $(".cover_mob").animate({
     opacity: 0
   }, 700, function(){
     $(".cover_mob").css("display", "none");
     $(".page").css("visibility", "visible");
-    // $(".page").animate({"margin-top": "0"}, 900);
   });
 
-
+    //////////////////////////////////////////////////////
+    adriver("http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932082&bid=3803580&bn=3803580&rnd=1334129509") // викторина, кнопка начать, клик на мобилках
+    //////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////
+    adriver(adRiverQuestions[0].show)     //   показ первого вопроса на мобилках
+    //////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////
+    adriver("http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932083&bid=3803615&bn=3803615&rnd=1141728765") // лого риановости, показ
+    //////////////////////////////////////////////////////
 });
 
-$(".cover_button").click(function(){
-  // $(".cover").animate({opacity: "0"}, 2100);
-  soundBg.get(0).play();
-  $(".cover").animate({
-    opacity: 0
-  }, 2100, function(){
-    $(".cover").css("display", "none");
-  });
-
-  // resizeVideo();
-});
 
 $(document).ready(function(){
+    //////////////////////////////////////////////////////
+    adriver("http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932081&bid=3807774&bn=3807774&rnd=1002758129") // викторина, обложка
+    //////////////////////////////////////////////////////
+
+  $(".cover_button").click(function(){
+
+    //////////////////////////////////////////////////////
+    adriver("http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932082&bid=3803580&bn=3803580&rnd=1334129509") // викторина, кнопка начать, клик
+    //////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////
+    adriver(adRiverQuestions[0].show)     //   показ первого вопроса
+    //////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////
+      adriver("http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932083&bid=3803615&bn=3803615&rnd=1141728765") // лого риановости, показ
+      //////////////////////////////////////////////////////
+
+    $(".vic").css("visibility", "visible");
+    $(".vid").css("visibility", "visible");
+    //if (BrowserDetect.browser == "iPad"){ $(".sound_teaser").css("visibility", "hidden"); }
+
+    // $(".cover").animate({opacity: "0"}, 2100);
+    $("#video_bg").get(0).play();
+    $('#sound_bg').get(0).play();
+    $(".cover").animate({
+      opacity: 0
+    }, 2100, function(){
+      $(".cover").css("display", "none");
+    });
+
+  });
+
   $('.cover_text_1').fadeTo( 2000, 1 );
   $('.cover_logo').animate( {opacity: 1 }, 2000);
 
@@ -11289,103 +11632,282 @@ $(document).ready(function(){
     $(".cover_text_1").fadeTo( 100, 0, function(){
       $(".cover_text_1").css("display", "none");
       $('.cover_text_2').fadeIn( 1900 , function(){
-        console.log(123);
-        // $('.cover_preload').css( {"display": "block"} );
-        //$('.cover_preload').fadeIn( 2500 , function(){
         $('.cover_preload').fadeIn( 2500 , function(){
-        //   console.log(123);
-        //   // $('.cover_button_preload').fadeTo( 500, 1 );
-          $('.cover_button_preload').fadeIn( 500 );
+
+            //////////////////////////////////////////////////////
+            adriver("http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932082&bid=3807776&bn=3807776&rnd=90559148") // викторина, показ кнопки начать
+            //////////////////////////////////////////////////////
+
+            $('.cover_button_preload').fadeIn( 500 );
         });
       });
-      // $("#svg_bg").attr("d", $("#svg_bg").attr("dd"));
-      // $("#svg_text").css("opacity", 0);
       $("#svg_bg").animate({"opacity": 0}, 1500);
       $("#svg_text").animate({"opacity": 1}, 2500);
-        // $(".cover_logo > img").fadeTo( 0, 0, function(){
-        //   $(".cover_logo > img").attr("src", "img/cover_logo1.svg");
-        //   $(".cover_logo > img").fadeTo( 0, 1);
-        // } );
-      
     });
-
   }, 1000);
 
   setTimeout(function() {
-    $(".vic").css("visibility", "visible");
-    $(".vid").css("visibility", "visible");
-
     $('.ftr-logo').animate({"opacity": "1"}, 2100);
-    
-    // $(".vid").css("opacity", "1");
-    // $(".page").css("opacity", "1");
-    // $(".social").css("opacity", "1");
-    // $(".ftr").css("opacity", "1");
-    // $(".sound").css("opacity", "1");
-
   }, 500);
 
-
   $('video.covervid-video-ts').on('ended',function(){
+    $(".ftr-mail").animate({"bottom": "0"}, 1000);
+    $(".vid_social").animate({"opacity": "1"}, 1000);
+    $(".covervid-video-ts").css("cursor","pointer");
+      //////////////////////////////////////////////////////
+      adriver("http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=517931&bt=21&pid=1932086&bid=3807780&bn=3807780&rnd=598216022") // показ тизерной плашки отправить письмо
+      //////////////////////////////////////////////////////
+  });
+
+    $('.ftr-mail-button').on('click', function(){
+      var ftr_mail_title = $(".ftr-mail-text > p.title").text();
+      if( IsEmail( $(".ftr-mail-input").val() )  ){
+
+        $(".ftr-mail-text > p.title").text("Идет отправка вашего email");
+
+        $.ajax({
+          type: "GET",
+          url: "http://ria.ru/common/feedback/arctic.json",
+          data: "email=" +  $(".ftr-mail-input").val(),
+          dataType: "json",
+          success: function(){
+            $(".ftr-mail-text > p.title").text("Поздравляем, вы успешно подписались на обновления проекта!");
+            setTimeout(function() {
+              $(".ftr-mail").animate({"bottom": "-200px"}, 1000);
+            }, 2000);
+          },
+          error: function(){
+             $(".ftr-mail-text > p.title").text("Увы. Что-то пошло не так. Попробуйте еще раз.");
+            setTimeout(function() {
+              $(".ftr-mail-text > p.title").text(ftr_mail_title);
+            }, 2000);
+          }
+
+        });
+
+      }else{
+        $(".ftr-mail-text > p.title").text("Неверно введен адрес! Пожалуйста, попробуйте еще раз.");
+        setTimeout(function() {
+          $(".ftr-mail-text > p.title").text(ftr_mail_title);
+        }, 2000);
+      }
+      $(".ftr-mail-input").val("");
+      //
+        //////////////////////////////////////////////////////
+        adriver("http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=517931&bt=21&pid=1932086&bid=3803558&bn=3803558&rnd=1622774362") // клик на кнопку отправить письмо
+        //////////////////////////////////////////////////////
+    })
+
+  $(".sound").click(function(){
+    if ( sound ){
+      soundOff();
+      soundTeaserOff();
+      $('#sound_bg').get(0).pause();
+      $('#sound_teaser').get(0).pause();
+      $('#video_big').get(0).volume = 0;
+      sound = false;
+      sound_teaser = false;
+    }else{
+      soundOn();
+      soundTeaserOn();
+      $('#sound_bg').get(0).play();
+      $('#video_big').get(0).volume = 1;
+      sound = true;
+      sound_teaser = true;
+    }
+  });
+
+  $(".sound_teaser").click(function(){
+    if ( sound_teaser ){
+      soundTeaserOff();
+      soundOff();
+      $('#video_big').get(0).volume = 0;
+      $('#sound_teaser').get(0).pause();
+      sound = false;
+      sound_teaser = false;
+    }else{
+      soundTeaserOn();
+      soundOn();
+      $('#video_big').get(0).volume = 1;
+      if( $("#video_big").get(0).currentTime == 0 ){
+        $('#sound_teaser').get(0).pause();
+        $("#sound_teaser").get(0).currentTime = 0;
+        $("#sound_teaser").get(0).play();
+      }else{
+        $('#sound_teaser').get(0).pause();
+        $("#sound_teaser").get(0).currentTime = $("#video_big").get(0).currentTime;
+        $('#sound_teaser').get(0).play();
+      }
+      sound = true;
+      sound_teaser = true;
+    }
+  });
+
+
+  if ( desktop ){
+    nextbtnQ.click( function(){
+      if (sound){ $("#sound_click").get(0).play(); }
+    });
+    nextbtnA.click( function(){
+      if (sound){ $("#sound_click").get(0).play(); }
+    });
+  }
+
+  // if ( desktop ){
+  //  $(".vic > .vid-wrapper").html(video_bg_html);
+  //  $(".vid > .vid-wrapper").html(video_big_html);
+  //  $("#audio_w").html(audio_html);
+  // }
+
+  /// Debug ////
+  // debug.addMessage(" video_big top: " + $("#video_big").css("top") + " video_big bottom: " + $("#video_big").css("bottom"));
+  // debug.addMessage(" video_big right: " + $("#video_big").css("right") + " video_big left: " + $("#video_big").css("left"));
+  // debug.addMessage(" video_big width: " + $("#video_big").css("width") + " video_big height: " + $("#video_big").css("height"));
+  // debug.addMessage(" video_big position: " + $("#video_big").css("position") + " video_big object-fit: " + $("#video_big").css("object-fit"));
+
+  // $("#debug-panel").show();
+//   var eventVideo = 'canplaythrough';
+// //  if (BrowserDetect.browser == "iPad"){ eventVideo = 'suspend' }
+// //  if (BrowserDetect.browser == "iPad"){
+//     debug.addMessage("eventVideo: " + eventVideo);
+//     $("#video_big").on(eventVideo, function() {
+//       $('.cover_button_preload').fadeTo( 100, 0 , function(){
+//         debug.addMessage("preloader");
+//         $('.cover_button').fadeIn( 800 );
+//         // $('.cover_button').fadeIn( 800 );
+//       });
+
+//       // $(".ftr").addClass('hover');
+//     });
+
+//  }else{
+//    $('.cover_button_preload').fadeTo( 10, 0);
+//    $('.cover_button').fadeIn( 800 );
+//  }
+
+
+
+
+  var url = $(location).attr('hash');
+  if (url == "#cover"){ 
+    $(".cover").css({display: "none"}); 
+    $(".vic").css("visibility", "visible");
+    $(".vid").css("visibility", "visible");
+    $("video.covervid-video").get(0).play(); 
+  }
+  if (url == "#vic"){ 
+    $(".cover").css({display: "none"}); 
+    $(".vic").css({display: "none"}); 
+    $("video.covervid-video-ts").get(0).play(); 
+  }
+
+  /// Debug ////
+
+  $("#video_big").on("ended",function(){
     $(".ftr-mail").animate({"bottom": "0"}, 1000);
     $(".vid_social").animate({"opacity": "1"}, 1000);
     $(".covervid-video-ts").css("cursor","pointer");
   });
 
 
-  $('video.covervid-video-ts').click(function(){
-    $("video.covervid-video-ts").get(0).play();
+  $("#video_big").click(function(){
+    $("#video_big").get(0).play();
+
+    if( $("#video_big").get(0).currentTime == 0 ){
+      $('#sound_teaser').get(0).pause();
+      $("#sound_teaser").get(0).currentTime = 0;
+      if(sound_teaser){
+        $("#sound_teaser").get(0).play();
+      }
+    }
+
     $(".ftr-mail").animate({"bottom": "-200px"}, 1000);
     $(".vid_social").animate({"opacity": "0"}, 1000);
     $(".covervid-video-ts").css("cursor","auto");
   });
 
+  // debug.addMessage(" Browser: " + BrowserDetect.browser);
+  // $("#video_bg").onprogress = function(){
+  //   debug.addMessage("123");
+  // }
 
+  // $("#video_big").on('progress', function() {
+  //   debug.addMessage(this.buffered.end(0) / this.duration);
+  // });
 
-  $(".sound").click(function(){
-    if ( $("g.sound_on").css("visibility") == "visible" ){
-      soundOff();
-      sound = false;
-    }else{
-      soundOn();
-      sound = true;
+//// Video Bg
+  var shown_bg = false;
+
+  setTimeout(function(){ 
+    hideProgress();
+  },10000)
+
+  $("#video_bg").on('suspend', function(){
+    hideProgress();
+  });
+
+  $("#video_bg").on('progress', function(){
+    var progress = function(){
+      this.buffered.end(0) / this.duration;
+    }
+
+    if (progress > 0.9){
+      hideProgress();
     }
   });
-  nextbtnQ.click( function(){ soundClick.get(0).play(); console.log(soundClick.get(0).volume); });
-  nextbtnA.click( function(){ soundClick.get(0).play() });
 
+  function hideProgress(){
+    if (shown_bg) return;
+    shown_bg = true;
+
+    $('.cover_button_preload').fadeTo( 100, 0 , function(){
+      // debug.addMessage("preloader");
+      $('.cover_button').fadeIn( 800 );
+    });
+
+  }
+/////////////////////////////
+//// Video Teaser
+  var shown = false;
+
+  setTimeout(function(){ 
+    showControls();
+  },20000)
+
+  $("#video_big").on('suspend', function(){
+    showControls();
+  });
+
+  $("#video_big").on('progress', function(){
+    var progress = function(){
+      this.buffered.end(0) / this.duration;
+    }
+    if (progress > 0.9){
+      showControls();
+    }
+  });
+
+  function showControls(){
+    if (shown) return;
+    shown = true;
+
+    $(".ftr").animate({"bottom": "0"}, 1000);
+    $(".show_video").removeClass("hide");
+    $(".ftr-line").removeClass("hide");
+
+  }
+/////////////////////////////
+
+  // var eventArr = ["abort", "canplay", "canplaythrough", "durationchange", "emptied", "ended", "error", "loadeddata", "loadedmetadata", "loadstart", "pause", "play", "playing", "ratechange", "seeked", "seeking", "stalled", "suspend", "volumechange", "waiting"];
+  // $.each( eventArr, function( i , val) {
+  //   $("#video_big").on(val, function() {
+  //     debug.addMessage(val);
+  //    });
+  // });
 
   /// Debug ////
 
-  BrowserDetect.init();
-  var enevtVideo = 'suspend';
-  if (BrowserDetect.browser == "Explorer"){
-    enevtVideo = 'canplaythrough';
-    console.log(BrowserDetect.browser);
-  }
-  if (BrowserDetect.browser == "Safari"){
-    enevtVideo = 'canplaythrough';
-    console.log(BrowserDetect.browser);
-  }
-
-    var vid2 = document.getElementById("video_bg");
-    vid2.addEventListener(enevtVideo, function(e) {
-      $('.cover_button_preload').fadeTo( 100, '0' , function(){
-        console.log("Ready1");
-        $('.cover_button').fadeIn( 800 );
-        // $('.cover_button').fadeIn( 800 );
-
-      });
-      console.log("Ready2");
-    }, false);
-
-
-  var url = $(location).attr('hash');
-  if (url == "#cover"){ $(".cover").css({display: "none"}); }
-  if (url == "#vic"){ $(".cover").css({display: "none"}); $(".vic").css({display: "none"}); $("video.covervid-video-ts").get(0).play(); }
-  /// Debug ////
 });
-
 
 resize();
 resizeVideo();
